@@ -10,10 +10,14 @@
 
 .banner {
     background-color: black;
-    height: 60vh;
-    padding: 12px 40px;
+    height: 100vh;
+    padding: 12px 30px;
     display: flex;
     align-items: center;
+}
+
+.banner .container {
+    width: 95%;
 }
 
 .objeto {

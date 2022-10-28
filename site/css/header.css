@@ -22,38 +22,41 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header {
+    background-color: #76B900;
     display: flex;
     height: 4vh;
     padding: 4px 4px;
 }
 
 .container {
-    width: 100%;
+    width: 95%;
+    margin: 10px 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.logo {
+
+    background-color: white;
 }
 
 .containerul {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    margin-right: 40%;
-    margin-left: 1%;
 }
 
 .containerul img {
     width: 40%;
+    padding-right: 80px;
 }
-
 
 .textos {
     width: 100%;
     display: flex;
     flex-direction: row;
-    margin-left: 60px;
     list-style: none;
 }
 
@@ -64,6 +67,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .textos a {
-    padding-right: 36px;
+   
     text-decoration: none;
+}
+
+.nossosservicos {
+    width: auto;
 }
