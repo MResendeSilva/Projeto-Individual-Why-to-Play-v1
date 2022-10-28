@@ -38,19 +38,21 @@ body::-webkit-scrollbar-thumb {
 }
 
 .logo {
-
     background-color: white;
+    display: flex;
+    justify-content: center;
+    width: 300px;
 }
 
 .containerul {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 }
 
 .containerul img {
     width: 40%;
-    padding-right: 80px;
 }
 
 .textos {
@@ -62,15 +64,11 @@ body::-webkit-scrollbar-thumb {
 
 .textos li {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .textos a {
-   
     text-decoration: none;
 }
 
-.nossosservicos {
-    width: auto;
-}
