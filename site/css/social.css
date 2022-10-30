@@ -1,0 +1,24 @@
+.social {
+    height: 60vh;
+    box-shadow: 0px 5px 12px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social .content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.texto h4 {
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #1DD882;
+}
+
+.social .texto p {
+    color: black;
+}

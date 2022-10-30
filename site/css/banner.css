@@ -1,0 +1,25 @@
+.banner .container {
+    padding-top: 55px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    width: 600px;
+}
+
+.texto h4 {
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #1DD882;
+}

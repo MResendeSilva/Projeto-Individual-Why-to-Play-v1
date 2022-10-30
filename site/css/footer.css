@@ -1,0 +1,22 @@
+.footer {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+}
+
+
+.footer .content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer .content img {
+    width: 20%;
+    margin-bottom: 4px;
+}
+
+.footer .content p {
+    color: #525252;
+    padding-left: 8px;
+}
