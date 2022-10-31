@@ -1,0 +1,43 @@
+.social3 {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+}
+
+.social3 .content {
+    display: flex;
+    justify-content: center;
+}
+
+.texto3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+}
+
+.social3 .content h4 {
+    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #1DD882;
+}
+
+.social3 .content p {
+    margin-bottom: 80px;
+    color: black;
+    margin-bottom: 50px;
+}
+
+.botao3 {
+    width: 200px;
+    height: 60px;
+    background-color: #1DD882;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.botao3:hover {
+    opacity: 0.8;
+}

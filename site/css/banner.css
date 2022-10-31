@@ -9,7 +9,11 @@
     flex-direction: row;
     justify-content: space-between;
 }
-   
+
+.video {
+    width: auto;
+}
+
 .texto {
     display: flex;
     flex-direction: column;
