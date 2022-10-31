@@ -5,7 +5,7 @@
 }
 
 .imagem {
-    background-image: url("../assets/call-of-duty-captain-price.jpg");
+    background-image: url("../assets/Captain-edit.jpg");
     background-size: cover;
     width: 80%;
     margin-left: 25%;
@@ -29,6 +29,25 @@
     margin-top: 30px;
     margin-bottom: 20px;
     width: 40%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+ .caixaFormulario img {
+    margin-bottom: 20px;
+    width: 60%;
+}
+
+.caixaFormulario img {
+    transition: all 0.8s;
+}
+
+.caixaFormulario img:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .caixaFormulario h4 {
