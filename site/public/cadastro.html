@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <script src="./js/funcoes.js"></script>
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div class="cadastro">
+        <div class="content">
+            <div class="caixaFormulario">
+                <a class="logo" href="index.html"><img src="./assets/TESTE LOGO 1.png" alt=""></a>
+                <h4><i>Cadastro</i></h4>
+                <div class="campo">
+                    <label for="in_nome">Nome</label>
+                    <input type="text" placeholder="Digite seu nome completo" id="in_nome">
+                </div>
+
+                <div class="campo">
+                    <label for="in_cel">Celular</label>
+                    <input type="text" placeholder="(xx) xxxxx-xxxx" id="in_cel">
+                </div>
+
+                <div class="campo">
+                    <label for="in_email">E-mail</label>
+                    <input type="text" placeholder="exemplo@exemplo.com" id="in_email">
+                </div>
+
+                <div class="campo">
+                    <label for="in_senha">Senha</label>
+                    <input type="password" placeholder="************" id="in_senha">
+                </div>
+
+                <div class="campo">
+                    <label for="in_confirmacaoSenha">Confirmar senha</label>
+                    <input type="password" placeholder="************" id="in_confirmacaoSenha">
+                </div>
+
+                <button>CADASTRAR</button>
+            </div>
+            <div class="imagem">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = in_nome.value;
+        var emailVar = in_email.value;
+        var senhaVar = in_senha.value;
+        var confirmacaoSenhaVar = in_confirmacao.value;
+
+        if (nomeVar == "" || celularTelefone == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                celularTelefoneServer: celularTelefone,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

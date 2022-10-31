@@ -1,0 +1,126 @@
+.content {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.imagem {
+    background-image: url("../assets/Captain-edit.jpg");
+    background-size: cover;
+    width: 80%;
+    margin-left: 25%;
+    position: relative;
+}
+
+.caixaFormulario {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: #282828;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 40%;
+    height: 100%;
+    z-index: 3;
+}
+
+.caixaFormulario img {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 40%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+ .caixaFormulario img {
+    margin-bottom: 20px;
+    width: 60%;
+}
+
+.caixaFormulario img {
+    transition: all 0.8s;
+}
+
+.caixaFormulario img:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.2);
+}
+
+.caixaFormulario h4 {
+    margin-bottom: 0.8rem;
+    font-size: 30px;
+    font-weight: 300;
+    color: white;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+.campo input {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 8px;
+    width: 400px;
+    border-radius: 8px;
+    border: none;
+    color: black;
+}
+
+
+.caixaFormulario button {
+    margin-top: 20px;
+    width: 210px;
+    height: 40px;
+    background-color: #1DD882;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.caixaFormulario button:hover {
+    opacity: 0.8;
+}
+
+.alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .card_erro {
+    display: none;
+    background-color: #fff;
+    top:100px;
+    width: 230px;
+    position: fixed;
+    border-radius: 4px;
+    border: #e6005a 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+  }
+  
+  .card_erro #mensagem_erro{
+    color: black !important;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .loading-div {
+   top:100px;
+    width: 50px;
+    margin: auto;
+    display: none;
+    position: fixed;
+  }
+  
+  .loading-div img {
+    height: 50px;
+    width: 50px;
+  }
