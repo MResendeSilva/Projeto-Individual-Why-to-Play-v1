@@ -1,3 +1,4 @@
+
 .social {
     height: 60vh;
     box-shadow: 0px 5px 12px 4px rgba(0, 0, 0, 0.25);
@@ -12,11 +13,11 @@
     justify-content: space-between;
 }
 
-.texto h4 {
+.social .texto h4 {
     margin-bottom: 20px;
     font-size: 25px;
-    font-weight: 600;
-    color: #1DD882;
+    font-weight: 700;
+    color: black;
 }
 
 .social .texto p {

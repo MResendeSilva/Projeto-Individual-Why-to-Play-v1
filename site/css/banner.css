@@ -1,5 +1,7 @@
-.banner .container {
-    padding-top: 55px;
+.banner {
+    height: 84vh;
+    display: flex;
+    align-items: center;
 }
 
 .content {
@@ -7,7 +9,7 @@
     flex-direction: row;
     justify-content: space-between;
 }
-
+   
 .texto {
     display: flex;
     flex-direction: column;
