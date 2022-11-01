@@ -42,7 +42,20 @@
                     <input type="password" placeholder="************" id="in_confirmacaoSenha">
                 </div>
 
-                <button>CADASTRAR</button>
+                <button onclick="cadastrar()">CADASTRAR</button>
+
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/spinner_green.gif" id="loading-gif">
+                </div>
+
+                <div id="div_erros_login">
+
+                </div>
             </div>
             <div class="imagem">
             </div>
@@ -59,9 +72,10 @@
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = in_nome.value;
+        var celularTelefone = in_cel.value
         var emailVar = in_email.value;
         var senhaVar = in_senha.value;
-        var confirmacaoSenhaVar = in_confirmacao.value;
+        var confirmacaoSenhaVar = in_confirmacaoSenha.value;
 
         if (nomeVar == "" || celularTelefone == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
