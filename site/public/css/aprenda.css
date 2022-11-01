@@ -1,0 +1,15 @@
+.video {
+    padding-right: 100px;
+}
+
+.video img {
+    width: 400px;
+    height: 300px;
+}
+
+.texto h4 {
+    margin-bottom: 20px;
+    font-size: 55px;
+    font-weight: 600;
+    color: #1DD882;
+}

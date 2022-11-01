@@ -12,13 +12,13 @@ CREATE TABLE cadastroCliente (
 );
 
 CREATE TABLE config (
-	idConfig INT,
-	processador VARCHAR(45),
-	placaMae VARCHAR(45),
-	memoriaRam INT,
-	memoriaInterna INT,
+    idConfig INT,
+    processador VARCHAR(45),
+    placaMae VARCHAR(45),
+    memoriaRam INT,
+    memoriaInterna INT,
     tipoMemInterna VARCHAR(10),
-	gpu VARCHAR(45),
-	fonte INT,
-	cooler VARCHAR(10)
+    gpu VARCHAR(45),
+    fonte INT,
+    cooler VARCHAR(10)
 );
