@@ -7,7 +7,7 @@
 .imagem {
     background-image: url("../assets//GTA-V-02a-1080-Main.jpg");
     background-size: cover;
-    width: 60%;
+    width: 100%;
     margin-left: 30%;
     position: relative;
 }
