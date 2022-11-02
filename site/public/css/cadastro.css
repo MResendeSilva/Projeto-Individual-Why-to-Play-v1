@@ -64,15 +64,19 @@
 }
 
 .campo input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ffffff;
     margin-top: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     padding: 8px;
     width: 400px;
-    border-radius: 8px;
-    border: none;
-    color: black;
+    color: #ffffff;
 }
 
+.campo input:focus-visible {
+    outline: none;
+}
 
 .caixaFormulario button {
     margin-top: 20px;
@@ -98,10 +102,11 @@
     display: none;
     background-color: #fff;
     top: 100px;
+    left: 150px;
     width: 230px;
-    position: fixed;
+    position: absolute;
     border-radius: 4px;
-    border: #e6005a 3px solid;
+    border: #1DD882 3px solid;
     padding: 10px;
     margin-right: 10%;
 }
