@@ -16,6 +16,12 @@
     width: 800px;
 }
 
+.social3 {
+  
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .social3 .content h4 {
     margin-bottom: 40px;
     font-size: 40px;
@@ -26,10 +32,9 @@
 .social3 .content p {
     margin-bottom: 80px;
     color: black;
-    margin-bottom: 50px;
     font-size: 20px;
     width: 600px;
-    text-align: justify;
+    text-align: center;
 }
 
 .botao3 {

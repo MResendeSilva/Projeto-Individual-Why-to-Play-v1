@@ -162,7 +162,7 @@
 
 .social2 .texto {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: auto;
 }
 
@@ -172,6 +172,4 @@
     font-size: 16px;
     line-height: 40px;
     color: #1DD882;
-   
-   
 }
