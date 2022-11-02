@@ -4,7 +4,7 @@
     flex-direction: row;
 }
 
-.imagem {
+.cadastro .imagem {
     background-image: url("../assets/Captain-edit.jpg");
     background-size: cover;
     width: 80%;
