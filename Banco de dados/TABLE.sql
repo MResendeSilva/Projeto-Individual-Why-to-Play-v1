@@ -5,7 +5,6 @@ USE projetoindividual;
 CREATE TABLE cadastroCliente (
     idCliente INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
-    telCel VARCHAR(12),
     email VARCHAR(45),
     CONSTRAINT chkEmail CHECK (email LIKE '%@%'),
     senha VARCHAR(45)
@@ -22,3 +21,5 @@ CREATE TABLE config (
     fonte INT,
     cooler VARCHAR(10)
 );
+
+ALTER TABLE cadastroCliente DROP COLUMN telCel;
