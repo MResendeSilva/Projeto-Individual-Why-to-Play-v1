@@ -1,7 +1,13 @@
 .banner {
-    height: 84vh;
+    height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+
+.banner .container {
+    margin: 0 auto;
 }
 
 .content {
