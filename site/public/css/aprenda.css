@@ -15,6 +15,58 @@
 }
 
 .social {
-    height: 100vh;
+    height: 90vh;
     background-color: white;
+}
+
+.social .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social .content h4 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+    font-size: 55px;
+    font-weight: 600;
+    color: black;
+}
+
+.conteudo {
+    margin-top: 4rem;
+    position: absolute;
+    transition: 0.3s;
+}
+
+.c1 {
+    left: -1366px ;
+}
+
+.c2 {
+
+}
+
+.c3 {
+    left: 2732px;
+}
+
+
+.conteudo i {
+    font-size: 55px;
+    font-weight: 300;
+    color: black;
+}
+
+.social .texto {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: auto;
+}
+.social .texto p {
+    color: black;
+    width: 600px;
 }

@@ -1,10 +1,10 @@
-.login .content {
+ .content {
     height: 100vh;
     display: flex;
     flex-direction: row;
 }
 
-.login .imagem {
+ .imagem {
     background-image: url("../assets//GTA-V-02a-1080-Main.jpg");
     background-size: cover;
     width: 100%;
