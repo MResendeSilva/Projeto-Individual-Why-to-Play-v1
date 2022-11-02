@@ -1,3 +1,16 @@
+.banner1 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .video {
     padding-right: 100px;
 }

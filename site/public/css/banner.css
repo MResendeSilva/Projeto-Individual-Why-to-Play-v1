@@ -3,17 +3,16 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-
 }
 
 .banner .container {
-    margin: 0 auto;
+    margin: 70px  auto;
 }
 
-.content {
+.content1 {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .video {
