@@ -41,7 +41,7 @@
     display: flex;
     justify-content: flex-start;
     flex-flow: row nowrap;
-    gap: 100px;
+    gap: 125px;
     margin: auto;
     overflow-x: auto;
 
@@ -115,7 +115,7 @@
 }
 
 .social2 {
-    height: 90vh;
+    height: auto;
     background-color: #000000;
     display: flex;
     align-items: center;
