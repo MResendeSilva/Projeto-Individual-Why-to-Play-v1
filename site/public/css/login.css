@@ -32,7 +32,7 @@
 
  .caixaFormulario img {
      margin-bottom: 20px;
-     width: 60%;
+     width: 40%;
  }
 
  .caixaFormulario img {
@@ -40,13 +40,13 @@
  }
 
  .caixaFormulario img:hover {
-     -webkit-transform: scale(1.1);
-     transform: scale(1.2);
+     -webkit-transform: scale(1);
+     transform: scale(1.1);
  }
 
  .caixaFormulario h4 {
      margin-bottom: 0.8rem;
-     font-size: 30px;
+     font-size: 25px;
      font-weight: 300;
      color: white;
  }
@@ -64,7 +64,7 @@
      margin-top: 5px;
      margin-bottom: 40px;
      padding: 8px;
-     width: 400px;
+     width: 350px;
      color: #ffffff;
  }
 
@@ -123,11 +123,12 @@
  }
 
  .loading-div {
-     margin-top: 40px;
-     display: none;
- }
+    position: absolute;
+    display: none;
+    margin: 0 0;
+  }
 
- .loading-div img {
-     height: 70px;
-     width: 70px;
- }
+.loading-div img {
+    height: 70px;
+    width: 70px;
+}

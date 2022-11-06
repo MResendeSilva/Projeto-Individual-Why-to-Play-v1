@@ -1,5 +1,5 @@
 .social3 {
-    height: 60vh;
+    height: auto;
     display: flex;
     justify-content: center;
 }
@@ -49,8 +49,10 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    transition: all 0.8s;
 }
 
 .botao3:hover {
-    opacity: 0.8;
+    -webkit-transform: scale(1);
+    transform: scale(1.07);
 }

@@ -19,12 +19,12 @@
     flex-direction: column;
     align-items: center;
     text-align: justify;
-    width: 600px;
+    width: auto;
 }
 
 .texto2 h4 {
     margin-bottom: 20px;
-    font-size: 40px;
+    font-size: 45px;
     font-weight: 600;
     color: #1DD882;
 }
@@ -32,4 +32,5 @@
  .texto2 p {
     color: white;
     margin-bottom: 20px;
+    width: 800px;
 }

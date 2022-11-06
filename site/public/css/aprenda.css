@@ -32,7 +32,8 @@
 }
 
 .social {
-    height: 80vh;
+    height: auto;
+    padding: 10px 10px;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -52,7 +53,7 @@
     display: flex;
     justify-content: center;
     width: 90%;
-    margin: 0 auto;
+    margin: 0 0;
     padding: 24px 24px;
 }
 
@@ -88,7 +89,10 @@
 
 
 .proximo-slide {
-  display:block;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .arrow-left, .arrow-right {
@@ -169,4 +173,14 @@
     font-size: 16px;
     line-height: 40px;
     color: #1DD882;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
