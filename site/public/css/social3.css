@@ -6,25 +6,23 @@
 
 .social3 .content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.social3 .content img {
+    margin-right: 100px;
 }
 
 .texto3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 800px;
-}
-
-.social3 {
-  
-    background-repeat: no-repeat;
-    background-size: cover;
+    width: 600px;
 }
 
 .social3 .content h4 {
     margin-bottom: 40px;
-    font-size: 40px;
+    font-size: 42px;
     font-weight: 600;
     color: #1DD882;
 }
@@ -33,7 +31,14 @@
     margin-bottom: 80px;
     color: black;
     font-size: 20px;
-    width: 600px;
+    width: 100%;
+    text-align: justify;
+}
+
+
+.social3 .content b {
+    color: #1DD882;
+    font-weight: 600;
     text-align: center;
 }
 
