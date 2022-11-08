@@ -32,7 +32,7 @@
 
  .caixaFormulario img {
      margin-bottom: 20px;
-     width: 40%;
+     width: 50%;
  }
 
  .caixaFormulario img {
@@ -74,7 +74,8 @@
 
 
  .caixaFormulario button {
-     margin-top: 20px;
+     margin-top: 0;
+     margin-bottom: 10px;
      width: 210px;
      height: 40px;
      background-color: #1DD882;
@@ -86,6 +87,7 @@
 
  .caixaFormulario button:hover {
      opacity: 0.8;
+     
  }
 
  .footer {
