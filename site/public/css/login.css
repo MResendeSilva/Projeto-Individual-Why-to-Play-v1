@@ -108,7 +108,7 @@
 
  .card_erro {
      display: none;
-     background-color: #fff;
+     background-color: #ffffff;
      top: 100px;
      left: 150px;
      width: 230px;
@@ -120,8 +120,16 @@
  }
 
  .card_erro #mensagem_erro {
-     font-weight: 500;
-     font-size: 20px;
+    color: black !important;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+ #div_erros_login {
+    margin-top: 40px;
+    color:#1DD882;
+    font-weight: 600;
+    font-size: 20px;
  }
 
  .loading-div {

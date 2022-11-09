@@ -45,7 +45,7 @@
                         <span id="mensagem_erro"></span>
                     </div>
                 </div>
-                
+
             </div>
             <div class="imagem">
             </div>
@@ -64,7 +64,7 @@
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "Todos os campos devem ser preenchidos!";
             finalizarAguardar();
             return false;
         }
@@ -109,8 +109,8 @@
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
-                    console.error(texto);
-                    // finalizarAguardar(texto);
+                    console.log(texto) 
+                    finalizarAguardar(texto);
                 });
             }
 

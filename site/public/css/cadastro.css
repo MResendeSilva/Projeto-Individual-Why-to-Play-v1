@@ -117,6 +117,13 @@
     font-size: 20px;
 }
 
+#div_erros_login {
+    margin-top: 40px;
+    color:#1DD882;
+    font-weight: 600;
+    font-size: 20px;
+ }
+
 .loading-div {
     position: absolute;
     display: none;
