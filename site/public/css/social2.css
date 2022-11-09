@@ -1,7 +1,7 @@
 .social2 {
     /* background: linear-gradient(180deg, #000000 0%, #1B1B1B 50.52%, #000000 100%); */
     background: black;
-    height: 110vh;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,7 @@
 }
 
 .texto2 h4 {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     font-size: 45px;
     font-weight: 600;
     color: #1DD882;
@@ -31,6 +31,10 @@
 
  .texto2 p {
     color: white;
-    margin-bottom: 20px;
-    width: 800px;
+    margin-bottom: 40px;
+    width: 700px;
+}
+
+.video {
+    
 }

@@ -1,52 +1,112 @@
-.content {
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
 }
 
-.imagem {
+.background {
     background: linear-gradient(180deg, #000000 0%, #1B1B1B 50.52%, #000000 100%);
-    background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
-    margin-left: 30%;
+    height: 100vh;
     position: relative;
 }
 
-.caixaFormulario {
-    position: absolute;
+
+
+.sidebar {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background: #282828;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    width: 40%;
-    height: 100vh;
-    z-index: 3;
+    justify-content: flex-start;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.3s ease;
+    background-color: #282828;
 }
 
-.logo {
+.sidebar .navbar {
     display: flex;
-    justify-content: center;
+    flex-direction: column ;
 }
 
-.caixaFormulario img {
-    margin-bottom: 20px;
-    width: 50%;
+.navbar {
+    padding-left: 0;
+    margin-left: 0;
 }
 
-.caixaFormulario img {
-    transition: all 0.8s;
+.sidebar img {
+    width: 70%;
+    position: absolute;
+    left: 70px;
+    top: 10px;
+    margin-bottom: 1.8rem;
 }
 
-.caixaFormulario img:hover {
-    -webkit-transform: scale(1);
-    transform: scale(1.1);
+.navbar{
+    padding: 8px 8px 8px 0px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
-.caixaFormulario h4 {
-    margin-bottom: 0.8rem;
-    font-size: 25px;
-    font-weight: 300;
+.navbar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-top: 3rem;
+}
+
+.navbar li {
+    display: flex;
+    margin: 10px 10px;
+    color: #FFFFFF;
+    align-items: center;
+    transition: 0.6s;
+    position: relative;
+}
+
+.navbar li::after {
+    content: " ";
+    width: 0%;
+    height: 2px;
+    background-color: #1DD882;
+    position: absolute;
+    bottom: -3px;
+    left: 0px;
+    transition: 0.5s;
+    border-radius: 2px;
+
+}
+
+.navbar li:hover::after {
+    width: 150%;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: larger;
+    margin: 6px 0;
+}
+
+.botao {
+    position: absolute;
+    left: 0px;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: transparent;
     color: white;
+    padding: 20px 20px;
+    border: none;
+    z-index: 999;
 }

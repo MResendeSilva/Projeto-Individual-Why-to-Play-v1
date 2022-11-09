@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="shortcut icon" href="./assets/favicon-16x16.png" type="image/x-icon">
     <script src="./js/funcoes.js"></script>
@@ -13,28 +12,47 @@
 </head>
 
 <body>
-    <div class="login">
+
+    <div class="background">
         <div class="content">
-            <div class="caixaFormulario">
-                <div class="header">
-                    <div class="logo">
-                        <img src="./assets/TESTE LOGO 1.png" alt="">
-                    </div>
-                    <div class="navbar">
-                        <ul class="textos">
-                            <li><a href="home">Home</a></li>
-                            <li><a href="config">Como jogar?</a></li>
-                            <li><a href="vote">Login</a></li>
-                            <li><a href="feedback">Cadastro</a></li>
-                            <li><a href="sair">Sair</a></li>
-                        </ul>
-                    </div>
+            <button class="botao" onclick="OpenCloseNav()">&#9776;</button>
+            <div class="sideHeader">
+                <div id="mySidebar" class="sidebar">
+                    <img src="./assets/TESTE LOGO 1.png" alt="">
+                    <ul class="navbar">
+                        <li><a href="">PÁGINA INICIAL</a></li>
+                        <li><a href="">DESCUBRA A CONFIG</a></li>
+                        <li><a href="">VOTE AQUI!</a></li>
+                        <li><a href="index.html" onclick="logout()">SAIR</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="imagem">
-                
-            </div>
         </div>
+    </div>
+
+
+
 </body>
 
 </html>
+
+<script>
+    var estado = 0
+    function OpenCloseNav() {
+
+        if (estado == 0) {
+            document.getElementById("mySidebar").style.width = "350px";
+
+            estado++
+        } else if (estado == 1) {
+            document.getElementById("mySidebar").style.width = "0px";
+            estado--
+        }
+
+    }
+
+    function logout() {
+        limparSessao()
+    }
+
+</script>

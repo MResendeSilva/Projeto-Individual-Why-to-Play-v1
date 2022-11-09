@@ -35,6 +35,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 10px auto;
 }
 
 .content1 {

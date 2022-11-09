@@ -41,11 +41,6 @@
     text-align: center;
 }
 
-.social .video {
-    margin: 30px 30px;
-
-}
-
 .social h4 {
     font-size: 42px;
     font-weight: 600;
@@ -87,7 +82,7 @@
 .slide i {
     margin-bottom: 1.2rem;
     font-size: 28px;
-    font-weight: 300;
+    font-weight: 400;
     color: #000000;
 }
 
@@ -152,6 +147,12 @@
     }
 }
 
+.video h3 {
+    font-size: 42px;
+    font-weight: 600;
+    color: #1DD882;
+    margin-bottom: 30px;
+}
 
 .social2 {
     height: auto;
