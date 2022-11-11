@@ -1,0 +1,109 @@
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.conteudo h2 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.conteudo b {
+    font-size: 36px;
+    color: #1DD882;
+    font-weight: 600;
+}
+
+.conteudo p {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 13px;
+    width: 70%;
+    text-align: center;
+}
+
+.conteudo p b{
+    font-size: 13px;
+    color: #1DD882;
+    font-weight: 600;
+}
+
+.caixaformulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.caixa {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.campo {
+    position: relative;
+    width: 13vw;
+    height: 15vw;
+    margin: 20px 40px;
+    min-height: max-content;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 8px 10px;
+    display: flex;
+    align-items: space-evenly;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transition: 0.3s ease;
+    border-radius: 10%;
+    
+    cursor: pointer;
+}
+
+.campo:hover {
+    transform: scale(1.05);
+    transition: 0.3s ease;
+}
+
+.jogo1{
+    background: url("../assets/undertale.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
+.jogo2{
+    background: url("../assets/undertale.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
+.jogo3{
+    background: url("../assets/undertale.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
+.jogo4{
+    background: url("../assets/undertale.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
+.jogo5{
+    background: url("../assets/undertale.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
+.jogo6{
+    background: url("../assets/undertale.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
