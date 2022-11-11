@@ -6,50 +6,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/main.css">
     <link rel="shortcut icon" href="./assets/favicon-16x16.png" type="image/x-icon">
     <script src="./js/funcoes.js"></script>
-    <title>DESCUBRA SUA CONFIG</title>
+    <title>Descubra sua configuração</title>
 </head>
 
 <body>
     <div class="background">
-
         <div class="navbar">
-
             <ul>
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
                 <li class="lista ">
                     <a href="dashboard.html">
-                        <span class="icone"><img src="./assets/home.png" alt="" width="60px" height="60px"></span>
+                        <span class="icone"><img src="./assets/home.png" alt="" width="40px" height="40px"></span>
                         <span class="label">HOME</span>
                     </a>
                 </li>
                 <li class="lista ativo">
                     <a href="config.html">
-                        <span class="icone"><img src="./assets/config.png" alt="" width="60px"
-                                height="60px"></span></span>
+                        <span class="icone"><img src="./assets/config.png" alt="" width="40px"
+                                height="40px"></span></span>
                         <span class="label">DESCUBRA SUA CONFIG</span>
                     </a>
                 </li>
                 <li class="lista">
-                    <a href="">
-                        <span class="icone"><img src="./assets/vote.png" alt="" width="60px" height="60px"></span>
+                    <a href="vote.html">
+                        <span class="icone"><img src="./assets/vote.png" alt="" width="40px" height="40px"></span>
                         <span class="label">VOTE AGORA</span>
                     </a>
                 </li>
-                <li class="lista">
-                    <a href="">
-                        <span class="icone"><img src="./assets/feedback.png" alt="" width="60px" height="60px"></span>
+                <li class="lista ">
+                    <a href="avalie.html">
+                        <span class="icone"><img src="./assets/feedback.png" alt="" width="40px" height="40px"></span>
                         <span class="label">AVALIAÇÃO DO USUÁRIO</span>
                     </a>
                 </li>
                 <li class="lista" id="last">
                     <a href="index.html" onclick="logout()">
-                        <span class="icone"><img src="./assets/logout.png" alt="" width="60px" height="60px"></span>
+                        <span class="icone"><img src="./assets/logout.png" alt="" width="40px" height="40px"></span>
                         <span class="label">SAIR</span>
                     </a>
                 </li>
             </ul>
+
+        </div>
+
+        <div class="imagem">
+            <div class="container1">
+                <h2>Seja bem-vindo(a) ao <b>menu do usuário</b></h2>
+            </div>
         </div>
 
     </div>
@@ -60,8 +66,8 @@
 
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    
-    
+
+
     function logout() {
         limparSessao()
     }

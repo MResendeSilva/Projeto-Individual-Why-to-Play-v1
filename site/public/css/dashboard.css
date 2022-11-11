@@ -15,6 +15,7 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    justify-content: space-between;
 }
 
 .navbar {
@@ -38,16 +39,14 @@
     width: 100%;
     padding-left: 10px;
     padding-top: 40px;
-    
 }
-
 
 .navbar li {
     position: relative;
     list-style: none;
     width: 100%;
     margin-bottom: 30px;
-    
+
 }
 
 .navbar li:hover {
@@ -62,11 +61,11 @@
     color: #ffffff;
     align-items: center;
 }
+
 .navbar h3 {
     display: block;
     margin-top: 0.5rem;
     margin-bottom: 40px;
-    /* white-space: nowrap; */
     text-align: center;
     transition: 0.5s;
 }
@@ -77,6 +76,7 @@
     min-width: 60px;
     text-align: center;
     line-height: 0px;
+    font-size: 20px;
 }
 
 .label {
@@ -87,13 +87,36 @@
     height: 60px;
     list-style: 60px;
     white-space: nowrap;
+    font-size: 15px;
 }
 
 .ativo {
     background: #1DD882;
 }
 
-.imagem{
+.imagem {
     height: 100vh;
-    width: 70%;
+    width: 100%;
+
+}
+
+.container1 {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    padding: 24px 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.container1 h2 {
+    font-size: 42px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.container1 b {
+    font-size: 42px;
+    color: #1DD882;
+    font-weight: 600;
 }
