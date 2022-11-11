@@ -14,20 +14,21 @@
     background-size: cover;
     width: 100%;
     height: 100vh;
+    display: flex;
 }
 
 .navbar {
-    position: relative;
+    position: fixed;
     height: 100vh;
     background: #282828;
-    width: 90px;
+    width: 100px;
     box-shadow: 6px 0 0 #1DD882;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.3s ease-in-out;
 }
 
 .navbar:hover {
-    width: 320px;
+    width: 25%;
 }
 
 .navbar ul {
@@ -35,8 +36,9 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding-left: 5px;
+    padding-left: 10px;
     padding-top: 40px;
+    
 }
 
 
@@ -45,6 +47,7 @@
     list-style: none;
     width: 100%;
     margin-bottom: 30px;
+    
 }
 
 .navbar li:hover {
@@ -57,6 +60,7 @@
     width: 100%;
     text-decoration: none;
     color: #ffffff;
+    align-items: center;
 }
 .navbar h3 {
     display: block;
@@ -67,23 +71,12 @@
     transition: 0.5s;
 }
 
-
-#last {
-    margin-top: 300px;
-}
-
 .icone {
     position: relative;
     display: block;
     min-width: 60px;
     text-align: center;
     line-height: 0px;
-}
-
-.imagem {
-    position: relative;
-    width: 20px;
-    z-index: 1;
 }
 
 .label {
@@ -98,4 +91,9 @@
 
 .ativo {
     background: #1DD882;
+}
+
+.imagem{
+    height: 100vh;
+    width: 70%;
 }
