@@ -31,13 +31,6 @@ body::-webkit-scrollbar-thumb {
     padding: 24px 24px;
 }
 
-/* .container1 {
-    width: 90%;
-    height: 100%;
-    margin: auto;
-    padding: 24px 24px;
-} */
-
 .content {
     display: flex;
     flex-direction: row;
@@ -50,3 +43,4 @@ body::-webkit-scrollbar-thumb {
     flex-direction: row;
     justify-content: center;
 }
+

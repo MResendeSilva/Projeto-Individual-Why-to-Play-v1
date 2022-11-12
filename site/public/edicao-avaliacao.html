@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/mural.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="shortcut icon" href="./assets/favicon-16x16.png" type="image/x-icon">
+    <script src="./js/funcoes.js"></script>
+    <title>Avaliação do usuário</title>
+</head>
+
+<body onload=" listarInfosDeUm()">
+
+    <div class="background">
+        <div class="navbar">
+            <ul>
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                <li class="lista ">
+                    <a href="dashboard.html">
+                        <span class="icone"><img src="./assets/home.png" alt="" width="40px" height="40px"></span>
+                        <span class="label">HOME</span>
+                    </a>
+                </li>
+                <li class="lista">
+                    <a href="config.html">
+                        <span class="icone"><img src="./assets/config.png" alt="" width="40px"
+                                height="40px"></span></span>
+                        <span class="label">DESCUBRA SUA CONFIG</span>
+                    </a>
+                </li>
+                <li class="lista">
+                    <a href="vote.html">
+                        <span class="icone"><img src="./assets/vote.png" alt="" width="40px" height="40px"></span>
+                        <span class="label">VOTE AGORA</span>
+                    </a>
+                </li>
+                <li class="lista ativo">
+                    <a href="mural.html">
+                        <span class="icone"><img src="./assets/feedback.png" alt="" width="40px" height="40px"></span>
+                        <span class="label">AVALIAÇÃO DO USUÁRIO</span>
+                    </a>
+                </li>
+                <li class="lista" id="last">
+                    <a href="index.html" onclick="logout()">
+                        <span class="icone"><img src="./assets/logout.png" alt="" width="40px" height="40px"></span>
+                        <span class="label">SAIR</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="imagem">
+            <div class="dash-right">
+                <div class="avisos">
+                    <div class="container">
+                        <h1>Editar um aviso</h1>
+                        <div class="div-form">
+                            <label>
+                                ID:
+                                <br>
+                                <input id="input_id" maxlength="100" type="text" style="color: rgb(196, 196, 196)"
+                                    disabled>
+                            </label>
+                            <label>
+                                Autor:
+                                <br>
+                                <input id="input_nome" maxlength="100" type="text" style="color: rgb(196, 196, 196)"
+                                    disabled>
+                            </label>
+                            <label>
+                                Título:
+                                <br>
+                                <input id="input_titulo" maxlength="100" type="text" style="color: rgb(196, 196, 196)"
+                                    disabled>
+                            </label>
+                            <br>
+                            <label>
+                                Descrição (máximo de 250 caracteres):
+                                <br>
+                                <textarea id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                            </label>
+                            <br>
+                            <button onclick="editar()">Editar</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    function logout() {
+        limparSessao()
+    }
+
+    function listarInfosDeUm() {
+        console.log("Criar função de trazer informações de post escolhido");
+    }
+
+    function editar() {
+        fetch(`/avisos/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                descricao: textarea_descricao.value
+            })
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                window.location = "mural.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+
+</script>

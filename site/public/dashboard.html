@@ -12,7 +12,7 @@
     <title>Página do usuário</title>
 </head>
 
-<body>
+<body onload="validarSessao()" style="background: (180deg, #000000 0%, #1B1B1B 50.52%, #000000 100%)">
     <div class="background">
         <div class="navbar">
             <ul>
@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li class="lista">
-                    <a href="avalie.html">
+                    <a href="mural.html">
                         <span class="icone"><img src="./assets/feedback.png" alt="" width="40px" height="40px"></span>
                         <span class="label">AVALIAÇÃO DO USUÁRIO</span>
                     </a>
@@ -55,7 +55,9 @@
         <div class="imagem">
             <div class="container1">
                 <h2>SEJA BEM-VINDO(A) AO <b>MENU DO USUÁRIO</b></h2>
-                
+                <div id="div_aguardar" class="div-aguardar">
+                    <img src="./assets/loadinggreen.gif" id="img_aguarde">
+                </div>
             </div>
         </div>
 

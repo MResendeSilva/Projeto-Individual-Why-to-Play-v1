@@ -48,6 +48,14 @@ CREATE TABLE votacao (
     PRIMARY KEY (fkTipoGame, fkUsuario)
 );
 
+CREATE TABLE aviso (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	titulo VARCHAR(100),
+	descricao VARCHAR(150),
+	fk_usuario INT,
+	FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
+);
+
 INSERT INTO config (processador,placaMae,memoriaRam,memoriaInterna,placadevideo,fonte) VALUES
 ('AMD - Ryzen 3 2200g 3.7GHz','Gigabyte GA-A320M-H','Husky Gaming, 8GB, 2666MHz, DDR4','SSD 120 GB Kingston A400',' Vega 8 - Integrada do processador','Fonte 200W, 80 Plus White'),
 ('AMD - Ryzen 5 2400g 3.9GHz','Gigabyte B-350m','Husky Gaming, 8GB, 2400Mhz, DDR4','SSD 120 GB Kingston A400','RX 560 PowerColor Red Dragon','Fonte gamemax 400W, 80 Plus White'),
@@ -63,3 +71,8 @@ INSERT INTO jogo (nome,estiloJogo,fkConfig) VALUES
 ('fifa23','futebol','4'),
 ('codmw2','fps','5'),
 ('r2d2','ação e aventura / mundo aberto','6');
+
+select * from aviso;
+
+truncate table aviso;
+
