@@ -44,10 +44,14 @@
 
 .carta{
     background-color: transparent;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     margin: 10px 10px ;
     cursor: pointer;
+  }
+
+  .carta-tras h1{
+    font-size: 20px;
   }
   
 
@@ -144,5 +148,9 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.8s;
+    transition: all 0.3s;
+  }
+
+  .botao:hover {
+    transform: scale(1.07);
   }
