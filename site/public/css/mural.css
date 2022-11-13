@@ -1,6 +1,5 @@
 .imagem .container {
   padding: 5% 20%
-  
 }
 
 .container h1 {
@@ -34,7 +33,6 @@
   width: 100%;
   /* border: 3px solid pink; */
   color: rgb(216, 216, 216);
-  font-family: "Exo 2", sans-serif;
 }
 
 .dash-right .avisos .container {

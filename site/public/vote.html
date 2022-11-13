@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/vote.css">
     <link rel="shortcut icon" href="./assets/favicon-16x16.png" type="image/x-icon">
     <script src="./js/funcoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Vote agora!</title>
 </head>
 
@@ -54,22 +56,155 @@
 
         <div class="imagem">
             <div class="container1">
-                <h2>Seja bem-vindo(a) ao <b>menu do usuário</b></h2>
+                <div class="conteudo">
+                    <h2>VOTE NO SEU TIPO DE JOGO<b> FAVORITO</b></h2>
+                    <div class="caixaformulario">
+                        <div class="caixa">
+                            <div class="carta">
+                                <div class="carta-giratoria">
+                                    <div class="carta-frente imagem1">
+
+                                    </div>
+                                    <div class="carta-tras">
+                                        <h1>Moba</h1>
+                                        <p>LOL, Dota 2, Star Craft...</p>
+                                    </div>
+                                </div>
+                                <button class="btEscolher" onclick="escolho_moba()">Moba!</button>
+                            </div>
+
+                            <div class="carta">
+                                <div class="carta-giratoria">
+                                    <div class="carta-frente imagem2">
+
+                                    </div>
+                                    <div class="carta-tras">
+                                        <h1>FPS Competitivo</h1>
+                                        <p>CS:GO, Valorant, Rainbow Six...</p>
+                                    </div>
+                                </div>
+                                <button class="btEscolher" onclick="escolho_comp()">Competitivo!</button>
+                            </div>
+
+                            <div class="carta">
+                                <div class="carta-giratoria">
+                                    <div class="carta-frente imagem3">
+
+                                    </div>
+                                    <div class="carta-tras">
+                                        <h1>Battle Royale</h1>
+                                        <p>Pubg, COD Warzone, Fortinite...</p>
+                                    </div>
+                                </div>
+                                <button class="btEscolher" onclick="escolho_battle()">Battle Royale!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="botao" onclick="cadastrarJogoFavorito()">VOTAR!</button>
+                        <div class="alerta_erro">
+                            <div class="card_erro" id="cardErro">
+                                <span id="mensagem_erro"></span>
+                            </div>
+                        </div>
+                        <div id="div_aguardar" class="loading-div">
+                        </div>
+
+                        <div id="div_erros_login">
+
+                        </div>
+                </div>
             </div>
         </div>
-
-    </div>
 
 </body>
 
 </html>
 
 <script>
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
 
     function logout() {
         limparSessao()
     }
+    
+    var idJogo = 0
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function escolho_moba() {
+
+        idJogo = 1
+
+    }
+
+    function escolho_comp() {
+
+        idJogo = 2
+
+    }
+
+    function escolho_battle() {
+
+        idJogo = 3
+
+    }
+
+    function cadastrarJogoFavorito() {
+        aguardar();
+
+        if (idJogo == 0) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Você deve escolher um tipo de jogo!";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        var idUsuario = sessionStorage.getItem("ID_USUARIO");
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrarJogo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                fkTipoGame: idJogo,
+                fkUsuario: idUsuario
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Jogo favorito escolhido!";
+
+                setTimeout(() => {
+                    sessionStorage.FK_USUARIO = idUsuario
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar escolher o jogo favorito!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
 
 </script>
