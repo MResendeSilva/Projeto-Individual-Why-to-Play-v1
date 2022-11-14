@@ -6,15 +6,9 @@ CREATE TABLE usuario (
     nome VARCHAR(45),
     email VARCHAR(45),
     CONSTRAINT chkEmail CHECK (email LIKE '%@%'),
-    senha VARCHAR(45)
-);
-
-CREATE TABLE usuarioJogo (
-	fkUsuario INT,
-	FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario),
-	fkJogo INT,
-	FOREIGN KEY (fkJogo) REFERENCES jogo (idJogo),
-	PRIMARY KEY (fkUsuario, fkJogo)
+    senha VARCHAR(45),
+    fkConfig INT,
+    FOREIGN KEY (fkConfig) REFERENCES config (idConfig)
 );
 
 CREATE TABLE config (
@@ -25,14 +19,6 @@ CREATE TABLE config (
     memoriaInterna VARCHAR(45),
     placadeVideo VARCHAR(45),
     fonte VARCHAR(45)
-);
-
-CREATE TABLE jogo (
-	idJogo INT PRIMARY KEY auto_increment,
-	nome VARCHAR(60),
-	estiloJogo VARCHAR(60),
-	fkConfig INT,
-    FOREIGN KEY (fkConfig) REFERENCES config (idConfig)
 );
 
 CREATE TABLE tipoGame (
@@ -51,7 +37,7 @@ CREATE TABLE votacao (
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
-	descricao VARCHAR(150),
+	descricao VARCHAR(250),
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
 );
@@ -72,7 +58,16 @@ INSERT INTO jogo (nome,estiloJogo,fkConfig) VALUES
 ('codmw2','fps','5'),
 ('r2d2','ação e aventura / mundo aberto','6');
 
-select * from aviso;
+INSERT INTO tipoGame (nome) VALUES 
+('moba'),
+('competitivo'),
+('battleroyale');
 
-truncate table aviso;
+select * from aviso;
+select * from usuario;
+
+truncate table usuario;
+
+
+
 

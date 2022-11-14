@@ -54,7 +54,6 @@
   font-size: 20px;
 }
 
-
 .carta-giratoria {
   position: relative;
   width: 100%;
@@ -64,11 +63,9 @@
   transform-style: preserve-3d;
 }
 
-
 .carta:hover .carta-giratoria {
   transform: rotateY(180deg);
 }
-
 
 .carta-frente,
 .carta-tras {
@@ -154,4 +151,40 @@
 
 .botao:hover {
   transform: scale(1.07);
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 999;
+}
+
+/* Hide the default checkbox */
+input[type=checkbox] {
+  visibility: hidden;
+}
+
+/* Creating a custom checkbox
+based on demand */
+.selecionado {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  width: 200px;
+  background-color: transparent;
+}
+
+.main input:checked ~ .selecionado {
+  background-color: #1bbd71;
+}
+
+/* Checkmark to be shown in checkbox */
+/* It is not be shown when not checked */
+.selecionado:after {
+  content: "";
+  position: absolute;
+  display: none;
 }
