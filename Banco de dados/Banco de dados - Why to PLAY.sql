@@ -48,7 +48,7 @@ INSERT INTO config (processador,placaMae,memoriaRam,memoriaInterna,placadevideo,
 ('INTEL CORE - I5 10400f 4.3Ghz','Asus Prime H410M-E','Husky Gaming - 8GB DDR4 2666MHz','SSD 240 GB Kingston A400','RX 570 PowerColor Red Dragon','Fonte gamemax 400W, 80 Plus White'),
 ('INTEL CORE - I5 10400f 4.3Ghz','Asus TUF Gaming B450M','HyperX Fury - 16GB DDR4 2666MHz','SSD 240 GB Kingston A400','GTX 1660 GALAX 6gb','Fonte gamemax 500W, 80 Plus White'),
 ('AMD - Ryzen 7 5700X 4.6Ghz',' Asus Prime X570-Pro','HyperX Fury - 16GB DDR4 3000MHz','SSD NVME 512 GB WD GREEM','RTX 2060 1-Click OC Galax 6gb','Fonte Corsair 650W, 80 Plus Bronze'),
-('INTEL CORE - I9 10900k 5.3Ghz','ROG STRIX Z490-G GAMING','HyperX Fury - 32GB DDR4 3200MHz','SSD NVME 1 TB WD BLACK','RTX 3070 TI 1-Click OC Galax 8gb','Fonte Corsair 700W, 80 Plus Gold');
+('INTEL CORE - I9 10900k 5.3Ghz','ROG STRIX Z490-G GAMING','HyperX Fury - 32GB DDR4 3200MHz','SSD 1 TB WD BlackA','RTX 3070 TI 1-Click OC Galax 8gb','Fonte Corsair 700W, 80 Plus Gold');
 
 INSERT INTO jogo (nome,estiloJogo,fkConfig) VALUES
 ('terraria','sandbox em plataforma 2D','1'),

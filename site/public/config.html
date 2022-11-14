@@ -75,7 +75,7 @@
                                             <p>Configuração: <i>Muito baixa</i></p>
                                         </div>
                                     </div>
-                                    <input type="checkbox">
+                                    <input type="checkbox" id="caixaSelecao0" value="0">
                                     <span class="selecionado"></span>
                                 </label>
                             </div>
@@ -92,7 +92,7 @@
                                             <p>Configuração: <i>Baixa</i></p>
                                         </div>
                                     </div>
-                                    <input type="checkbox">
+                                    <input type="checkbox" id="caixaSelecao1" value="1">
                                     <span class="selecionado"></span>
                                 </label>
                             </div>
@@ -109,7 +109,7 @@
                                             <p>Configuração: <i>Média para baixa</i></p>
                                         </div>
                                     </div>
-                                    <input type="checkbox">
+                                    <input type="checkbox" id="caixaSelecao2" value="2">
                                     <span class="selecionado"></span>
                                 </label>
                             </div>
@@ -122,12 +122,12 @@
 
                                         </div>
                                         <div class="carta-tras">
-                                            <h1>FIFA 23</h1>
-                                            <p>Futebol</p>
+                                            <h1>Call of Duty - MW2</h1>
+                                            <p>FPS</p>
                                             <p>Configuração: <i>Média para alta</i></p>
                                         </div>
                                     </div>
-                                    <input type="checkbox">
+                                    <input type="checkbox" id="caixaSelecao3" value="3">
                                     <span class="selecionado"></span>
                                 </label>
                             </div>
@@ -139,12 +139,12 @@
 
                                         </div>
                                         <div class="carta-tras">
-                                            <h1>Call of Duty - MW2</h1>
-                                            <p>FPS</p>
+                                            <h1>God of War - 2018(PC)</h1>
+                                            <p>Hack'n slash / RPG</p>
                                             <p>Configuração: <i>Alta</i></p>
                                         </div>
                                     </div>
-                                    <input type="checkbox">
+                                    <input type="checkbox" id="caixaSelecao4" value="4">
                                     <span class="selecionado"></span>
                                 </label>
                             </div>
@@ -161,15 +161,16 @@
                                             <p>Configuração: <i>Muito alta</i></p>
                                         </div>
                                     </div>
-                                    <input type="checkbox">
+                                    <input type="checkbox" id="caixaSelecao5" value="5">
                                     <span class="selecionado"></span>
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <button class="botao" onclick="">Ver resultado</button>
+                    <button class="botao" onclick="resultado()">Ver resultado</button>
                 </div>
             </div>
+
         </div>
 
     </div>
@@ -181,9 +182,126 @@
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-
     function logout() {
         limparSessao()
     }
 
+    var selecionados = []
+
+    var config = [
+        {
+            processador: "AMD - Ryzen 3 2200g (3.7GHz Turbo)",
+            placa_mae: "Gigabyte GA-A320M-H",
+            memoria_ram: "Husky Gaming, 8GB, 2400MHz, DDR4",
+            memoria_interna: "SSD 120 GB Kingston A400",
+            placa_de_video: "Vega 8 - Integrada do processador",
+            fonte: "Fonte Blue Case 200W, 80 Plus White"
+        },
+
+        {
+            processador: "AMD - Ryzen 5 2400g (3.9GHz Turbo)",
+            placa_mae: "Gigabyte B-350m','Husky Gaming, 8GB, 2400Mhz, DDR4",
+            memoria_ram: "Husky Gaming, 8GB, 2400Mhz, DDR4",
+            memoria_interna: "RX 560 PowerColor Red Dragon ou Vega 11 - Integrada do processador",
+            placa_de_video: "Galax GeForce GTX 1660 Super 6GB 1-CLICK OC",
+            fonte: "Gamemax GM500 500W, 80 Plus Bronze, PFC Ativo"
+        },
+
+        {
+            processador: "Intel Core - I5 10400f (4.3Ghz Turbo)",
+            placa_mae: "Asus Prime H410M-E",
+            memoria_ram: "2x Husky Gaming - 8GB DDR4 2666MHz",
+            memoria_interna: "SSD 240 GB Kingston A400",
+            placa_de_video: "RX 570 PowerColor Red Dragon",
+            fonte: "Gamemax GM400 400W, 80 Plus White"
+        },
+
+        {
+            processador: "Intel Core - I5 10600KF (4.8Ghz Turbo)",
+            placa_mae: "Asus TUF Gaming B450M",
+            memoria_ram: "2x HyperX Fury - 8GB DDR4 2666MHz",
+            memoria_interna: "1x SSD 240 GB Gigabyte",
+            placa_de_video: "Galax GeForce GTX 1060 Super 6GB 1-CLICK OC",
+            fonte: "Gamemax GM500 500W, 80 Plus Bronze, PFC Ativo"
+        },
+
+        {
+            processador: "AMD - Ryzen 7 5700X (4.6Ghz Turbo)",
+            placa_mae: "Gigabyte B550M Aorus Elite",
+            memoria_ram: "2x 8GB 3200MHz, DDR4 Kingston Fury Beast RGB",
+            memoria_interna: "SSD NVME 512GB WD GREEN",
+            placa_de_video: "RTX 2060 1-Click OC Galax 6gb",
+            fonte: "Fonte Corsair 650W, 80 Plus Bronze"
+        },
+
+        {
+            processador: "1x Intel Core - I9 10900k (5.3Ghz Turbo)",
+            placa_mae: "1x Asus Rog Strix Z490-G Gaming",
+            memoria_ram: "4x 8GB 3200MHz, DDR4 Kingston Fury Beast RGB",
+            memoria_interna: "1x SSD 1 TB WD Black",
+            placa_de_video: "1x RTX 3070 TI 1-Click OC Galax 8gb",
+            fonte: "1x Corsair 700W, 80 Plus Gold"
+        }
+    ]
+
+    function resultado() {
+        selecionados.splice(0, selecionados.length);
+
+        if (caixaSelecao0.checked == true) {
+            selecionados.push(caixaSelecao0.value)
+
+            console.log(`Existem ${selecionados.length} jogo(s) no vetor`)
+        }
+        if (caixaSelecao1.checked == true) {
+            selecionados.push(caixaSelecao1.value)
+
+            console.log(`Existem ${selecionados.length} jogo(s) no vetor`)
+        }
+        if (caixaSelecao2.checked == true) {
+            selecionados.push(caixaSelecao2.value)
+
+            console.log(`Existem ${selecionados.length} jogo(s) no vetor`)
+        }
+        if (caixaSelecao3.checked == true) {
+            selecionados.push(caixaSelecao3.value)
+
+            console.log(`Existem ${selecionados.length} jogo(s) no vetor`)
+        }
+        if (caixaSelecao4.checked == true) {
+            selecionados.push(caixaSelecao4.value)
+
+            console.log(`Existem ${selecionados.length} jogo(s) no vetor`)
+        }
+        if (caixaSelecao5.checked == true) {
+            selecionados.push(caixaSelecao5.value)
+
+            console.log(`Existem ${selecionados.length} jogo(s) no vetor`)
+        }
+
+        if (selecionados.length == 0) {
+            alert(`Você precisa selecionar pelo menos 1 jogo para prosseguir!`)
+            selecionados.splice(0, selecionados.length);
+        } else if (selecionados.length > 3) {
+            alert(`Você pode selecionar no máximo 3 jogos!`)
+            selecionados.splice(0, selecionados.length);
+        }
+
+        console.log(selecionados)
+        console.log(`No final, ficaram apenas ${selecionados.length} jogo(s) no vetor`)
+
+        selecionar_config()
+    }
+
+    function selecionar_config() {
+
+        for (var index = 0; index < config.length; index++) {
+            var configAtual = config[index];
+            if (index == Number(selecionados[selecionados.length - 1])) {
+
+                console.log(configAtual)
+            }
+        }
+
+        
+    }
 </script>
