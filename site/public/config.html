@@ -13,7 +13,7 @@
     <title>Descubra sua configuração</title>
 </head>
 
-<body>
+<body id="background">
     <div class="background" style="background: (180deg, #000000 0%, #1B1B1B 50.52%, #000000 100%)">
         <div class="navbar">
             <ul>
@@ -53,7 +53,7 @@
 
         </div>
 
-        <div class="imagem">
+        <div class="imagem" id="imagem">
             <div class="container1">
                 <div class="conteudo">
                     <h2>DESCUBRA A SUA <b> CONFIGURAÇÃO</b></h2>
@@ -190,48 +190,48 @@
 
     var config = [
         {
-            processador: "AMD - Ryzen 3 2200g (3.7GHz Turbo)",
-            placa_mae: "Gigabyte GA-A320M-H",
-            memoria_ram: "Husky Gaming, 8GB, 2400MHz, DDR4",
-            memoria_interna: "SSD 120 GB Kingston A400",
-            placa_de_video: "Vega 8 - Integrada do processador",
-            fonte: "Fonte Blue Case 200W, 80 Plus White"
+            processador: "1x AMD - Ryzen 3 2200g (3.7GHz Turbo)",
+            placa_mae: "1x Gigabyte GA-A320M-H",
+            memoria_ram: "1x Husky Gaming, 8GB, 2400MHz, DDR4",
+            memoria_interna: "1x SSD 120 GB Kingston A400",
+            placa_de_video: "1x Vega 8 - Integrada do processador",
+            fonte: "1x Blue Case 200W, 80 Plus White"
         },
 
         {
-            processador: "AMD - Ryzen 5 2400g (3.9GHz Turbo)",
-            placa_mae: "Gigabyte B-350m','Husky Gaming, 8GB, 2400Mhz, DDR4",
-            memoria_ram: "Husky Gaming, 8GB, 2400Mhz, DDR4",
-            memoria_interna: "RX 560 PowerColor Red Dragon ou Vega 11 - Integrada do processador",
-            placa_de_video: "Galax GeForce GTX 1660 Super 6GB 1-CLICK OC",
-            fonte: "Gamemax GM500 500W, 80 Plus Bronze, PFC Ativo"
+            processador: "1x AMD - Ryzen 5 2400g (3.9GHz Turbo)",
+            placa_mae: "1x Gigabyte B-350m",
+            memoria_ram: "1x Husky Gaming, 8GB, 2400Mhz, DDR4",
+            memoria_interna: "1x RX 560 PowerColor Red Dragon ou Vega 11 - Integrada do processador",
+            placa_de_video: "1x Galax GeForce GTX 1660 Super 6GB 1-CLICK OC",
+            fonte: "1x Gamemax GM500 500W, 80 Plus Bronze, PFC Ativo"
         },
 
         {
-            processador: "Intel Core - I5 10400f (4.3Ghz Turbo)",
-            placa_mae: "Asus Prime H410M-E",
+            processador: "1x Intel Core - I5 10400f (4.3Ghz Turbo)",
+            placa_mae: "1x Asus Prime H410M-E",
             memoria_ram: "2x Husky Gaming - 8GB DDR4 2666MHz",
-            memoria_interna: "SSD 240 GB Kingston A400",
-            placa_de_video: "RX 570 PowerColor Red Dragon",
-            fonte: "Gamemax GM400 400W, 80 Plus White"
+            memoria_interna: "1x SSD 240 GB Kingston A400",
+            placa_de_video: "1x RX 570 PowerColor Red Dragon",
+            fonte: "1x Gamemax GM400 400W, 80 Plus White"
         },
 
         {
-            processador: "Intel Core - I5 10600KF (4.8Ghz Turbo)",
-            placa_mae: "Asus TUF Gaming B450M",
+            processador: "1x Intel Core - I5 10600KF (4.8Ghz Turbo)",
+            placa_mae: "1x Asus TUF Gaming B450M",
             memoria_ram: "2x HyperX Fury - 8GB DDR4 2666MHz",
             memoria_interna: "1x SSD 240 GB Gigabyte",
-            placa_de_video: "Galax GeForce GTX 1060 Super 6GB 1-CLICK OC",
-            fonte: "Gamemax GM500 500W, 80 Plus Bronze, PFC Ativo"
+            placa_de_video: "1x Galax GeForce GTX 1060 Super 6GB 1-CLICK OC",
+            fonte: "1x Gamemax GM500 500W, 80 Plus Bronze, PFC Ativo"
         },
 
         {
-            processador: "AMD - Ryzen 7 5700X (4.6Ghz Turbo)",
-            placa_mae: "Gigabyte B550M Aorus Elite",
+            processador: "1x AMD - Ryzen 7 5700X (4.6Ghz Turbo)",
+            placa_mae: " 1x Gigabyte B550M Aorus Elite",
             memoria_ram: "2x 8GB 3200MHz, DDR4 Kingston Fury Beast RGB",
-            memoria_interna: "SSD NVME 512GB WD GREEN",
-            placa_de_video: "RTX 2060 1-Click OC Galax 6gb",
-            fonte: "Fonte Corsair 650W, 80 Plus Bronze"
+            memoria_interna: "1x SSD NVME 512GB WD GREEN",
+            placa_de_video: "1x RTX 2060 1-Click OC Galax 6gb",
+            fonte: "1x Fonte Corsair 650W, 80 Plus Bronze"
         },
 
         {
@@ -284,24 +284,55 @@
         } else if (selecionados.length > 3) {
             alert(`Você pode selecionar no máximo 3 jogos!`)
             selecionados.splice(0, selecionados.length);
+            window.location = "config.html"
+        } else if (selecionados.length > 0 && selecionados.length <= 3) {
+            selecionar_config()
         }
 
         console.log(selecionados)
         console.log(`No final, ficaram apenas ${selecionados.length} jogo(s) no vetor`)
 
-        selecionar_config()
     }
 
     function selecionar_config() {
-
+        var posicao = 0
         for (var index = 0; index < config.length; index++) {
             var configAtual = config[index];
             if (index == Number(selecionados[selecionados.length - 1])) {
-
                 console.log(configAtual)
+                posicao = index
             }
         }
 
-        
+        var resultado = document.getElementById("imagem")
+        resultado.innerHTML = ``
+
+        resultado.innerHTML = `
+        <div class="social2" id="social2">
+          <div class="container1">
+                <div class="conteudo">
+                    <h2>SUA CONFIGURAÇÃO <b> PERFEITA É...</b></h2>
+                    <div class="texto">
+                        <p><b>Processador:</b> ${config[posicao].processador} <br> </p>
+                        <p><b>Placa-mãe:</b> ${config[posicao].placa_mae} <br> </p>
+                        <p><b>Memoria ram:</b> ${config[posicao].memoria_ram} <br> </p>
+                        <p><b>Memória interna:</b> ${config[posicao].memoria_interna} <br> </p>
+                        <p><b>Placa de vídeo:</b> ${config[posicao].placa_de_video} <br> </p>
+                        <p><b>Fonte:</b> ${config[posicao].fonte} <br> </p>
+                    </div>
+                    <button class="botao" onclick="voltar()">Voltar</button>
+                    <button class="botao" onclick="gravar()">Gravar minha config</button>
+                </div>
+            </div>
+        </div>
+    </div>`
+    }
+
+    function voltar() {
+        window.location = "config.html"
+    }
+
+    function gravar() {
+
     }
 </script>
