@@ -186,6 +186,7 @@
         limparSessao()
     }
 
+    var posicao = 0
     var selecionados = []
 
     var config = [
@@ -195,16 +196,18 @@
             memoria_ram: "1x Husky Gaming, 8GB, 2400MHz, DDR4",
             memoria_interna: "1x SSD 120 GB Kingston A400",
             placa_de_video: "1x Vega 8 - Integrada do processador",
-            fonte: "1x Blue Case 200W, 80 Plus White"
+            fonte: "1x Blue Case 200W, 80 Plus White",
+            fkConfig: 1
         },
 
         {
             processador: "1x AMD - Ryzen 5 2400g (3.9GHz Turbo)",
             placa_mae: "1x Gigabyte B-350m",
             memoria_ram: "1x Husky Gaming, 8GB, 2400Mhz, DDR4",
-            memoria_interna: "1x RX 560 PowerColor Red Dragon ou Vega 11 - Integrada do processador",
-            placa_de_video: "1x Galax GeForce GTX 1660 Super 6GB 1-CLICK OC",
-            fonte: "1x Gamemax GM500 500W, 80 Plus Bronze, PFC Ativo"
+            memoria_interna: "1x SSD 120 GB Kingston A400",
+            placa_de_video: "1x RX 560 PowerColor Red Dragon ou Vega 11 - Integrada do processador",
+            fonte: "1x Gamemax GM500 500W, 80 Plus Bronze, PFC Ativo",
+            fkConfig: 2
         },
 
         {
@@ -213,7 +216,8 @@
             memoria_ram: "2x Husky Gaming - 8GB DDR4 2666MHz",
             memoria_interna: "1x SSD 240 GB Kingston A400",
             placa_de_video: "1x RX 570 PowerColor Red Dragon",
-            fonte: "1x Gamemax GM400 400W, 80 Plus White"
+            fonte: "1x Gamemax GM400 400W, 80 Plus White",
+            fkConfig: 3
         },
 
         {
@@ -222,16 +226,18 @@
             memoria_ram: "2x HyperX Fury - 8GB DDR4 2666MHz",
             memoria_interna: "1x SSD 240 GB Gigabyte",
             placa_de_video: "1x Galax GeForce GTX 1060 Super 6GB 1-CLICK OC",
-            fonte: "1x Gamemax GM500 500W, 80 Plus Bronze, PFC Ativo"
+            fonte: "1x Gamemax GM500 500W, 80 Plus Bronze, PFC Ativo",
+            fkConfig: 4
         },
 
         {
             processador: "1x AMD - Ryzen 7 5700X (4.6Ghz Turbo)",
-            placa_mae: " 1x Gigabyte B550M Aorus Elite",
+            placa_mae: "1x Gigabyte B550M Aorus Elite",
             memoria_ram: "2x 8GB 3200MHz, DDR4 Kingston Fury Beast RGB",
             memoria_interna: "1x SSD NVME 512GB WD GREEN",
             placa_de_video: "1x RTX 2060 1-Click OC Galax 6gb",
-            fonte: "1x Fonte Corsair 650W, 80 Plus Bronze"
+            fonte: "1x Fonte Corsair 650W, 80 Plus Bronze",
+            fkConfig: 5
         },
 
         {
@@ -240,7 +246,8 @@
             memoria_ram: "4x 8GB 3200MHz, DDR4 Kingston Fury Beast RGB",
             memoria_interna: "1x SSD 1 TB WD Black",
             placa_de_video: "1x RTX 3070 TI 1-Click OC Galax 8gb",
-            fonte: "1x Corsair 700W, 80 Plus Gold"
+            fonte: "1x Corsair 700W, 80 Plus Gold",
+            fkConfig: 6
         }
     ]
 
@@ -280,7 +287,7 @@
 
         if (selecionados.length == 0) {
             alert(`Você precisa selecionar pelo menos 1 jogo para prosseguir!`)
-            selecionados.splice(0, selecionados.length);
+            window.location = "config.html"
         } else if (selecionados.length > 3) {
             alert(`Você pode selecionar no máximo 3 jogos!`)
             window.location = "config.html"
@@ -294,7 +301,6 @@
     }
 
     function selecionar_config() {
-        var posicao = 0
         for (var index = 0; index < config.length; index++) {
             var configAtual = config[index];
             if (index == Number(selecionados[selecionados.length - 1])) {
@@ -321,6 +327,17 @@
                     </div>
                     <button class="botao" onclick="voltar()">Voltar</button>
                     <button class="botao" onclick="gravar()">Gravar minha config</button>
+                    <div class="alerta_erro">
+                            <div class="card_erro" id="cardErro">
+                                <span id="mensagem_erro"></span>
+                            </div>
+                        </div>
+                        <div id="div_aguardar" class="loading-div">
+                        </div>
+
+                        <div id="div_erros_login">
+
+                        </div>
                 </div>
             </div>
         </div>
@@ -328,10 +345,78 @@
     }
 
     function voltar() {
+        
         window.location = "config.html"
     }
 
     function gravar() {
+        aguardar();
 
+        var idUsuario = sessionStorage.getItem("ID_USUARIO");
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/gravarConfig", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fkConfig: config[posicao].fkConfig,
+                idUsuario,
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Sua Config foi salva! Ela aparecerá na home na próxima vez que logar!";
+
+                sessionStorage.FK_CONFIG = config[posicao].fkConfig,
+                carregarConfig()
+                
+                setTimeout(() => {
+                    window.location = "dashboard.html"
+                }, "1000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao gerar sua config!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
     }
+
+    function carregarConfig() {
+        var idConfig = sessionStorage.FK_CONFIG 
+
+        fetch(`/usuarios/carregarConfig/${idConfig}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(resposta[0].processador)
+
+                    sessionStorage.PROCESSADOR = resposta[0].processador
+                    sessionStorage.PLACA_MAE = resposta[0].placaMae
+                    sessionStorage.MEMORIA_RAM = resposta[0].memoriaRam
+                    sessionStorage.MEMORIA_INTERNA = resposta[0].memoriaInterna
+                    sessionStorage.PLACA_DE_VIDEO = resposta[0].placadeVideo
+                    sessionStorage.FONTE = resposta[0].fonte
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
 </script>
