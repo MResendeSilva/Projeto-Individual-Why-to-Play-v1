@@ -70,7 +70,10 @@
                     </div>
                 </div>
                 <div class="dashboard">
-                    <canvas id="myChart" style="height: 400px"></canvas>
+                    <h2>ESTILOS DE JOGOS MAIS VOTADOS</h2>
+                    <div class="graph">
+                        <canvas id="myChart" class="canva"></canvas>
+                    </div>
                 </div>
             </div>
             <div id="div_aguardar" class="div-aguardar">
@@ -104,7 +107,6 @@
         memoria_interna.innerHTML = '<b>Memória interna: </b> ' + memoria_interna1
         placa_de_video.innerHTML = '<b>Placa de vídeo: </b> ' + placa_de_video1
         fonte.innerHTML = '<b>Fonte: </b> ' + fonte1
-
 
     }
 
@@ -141,27 +143,25 @@
 </script>
 
 <script>
-const ctx = document.getElementById('myChart');
+    const ctx = document.getElementById('myChart');
 
 
-new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Moba', 'Competitivo', 'Battle Royale'],
-      datasets: [{
-        label: 'Tipos de jogo mais votados',
-        data: [20, 10, 3,],
-        borderWidth: 1,
-        backgroundColor:'#1DD882'
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Moba', 'Competitivo', 'Battle Royale'],
+            datasets: [{
+                label: 'Tipos de jogo mais votados',
+                data: [10, 10, 3,],
+                backgroundColor: '#1DD882'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
         }
-      }
-    }
-  });
+    });
 </script>
- 

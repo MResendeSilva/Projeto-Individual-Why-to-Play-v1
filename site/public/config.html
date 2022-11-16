@@ -371,14 +371,14 @@
             if (resposta.ok) {
                 cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Sua Config foi salva! Ela aparecerá na home na próxima vez que logar!";
+                mensagem_erro.innerHTML = "Sua Config foi salva no banco de dados! Ela aparecerá na página inicial sempre que você logar!";
 
                 sessionStorage.FK_CONFIG = config[posicao].fkConfig,
                 carregarConfig()
                 
                 setTimeout(() => {
                     window.location = "dashboard.html"
-                }, "1000")
+                }, "3000")
 
                 limparFormulario();
                 finalizarAguardar();

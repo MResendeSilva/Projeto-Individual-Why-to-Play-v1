@@ -167,7 +167,19 @@
     box-shadow: 6px 4px 0px #1DD882;
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+}
+.dashboard h2 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #1DD882;
+}
+
+.graph {
+    width: 90%;
+    height: 75%;
 }
 
 .config h2{
