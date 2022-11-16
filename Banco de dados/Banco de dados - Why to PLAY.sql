@@ -51,7 +51,6 @@ select * from votacao;
 
 select * from USUARIO;
 
-
 INSERT INTO tipoGame VALUES 
 (null,'moba'),
 (null,'competitivo'),
