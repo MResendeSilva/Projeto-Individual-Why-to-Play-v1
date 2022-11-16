@@ -98,6 +98,12 @@
     width: 100%;
 }
 
+.imagem1 {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
 .container1 {
     width: 90%;
     height: 100%;
@@ -159,6 +165,9 @@
     height: 420px;
     background-color: #282828;
     box-shadow: 6px 4px 0px #1DD882;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .config h2{

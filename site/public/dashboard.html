@@ -7,12 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="stylesheet" href="./css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="shortcut icon" href="./assets/favicon-16x16.png" type="image/x-icon">
     <script src="./js/funcoes.js"></script>
     <title>Página do usuário</title>
 </head>
 
-<body onload=" carregarConfig(), exibirConfig(), validarSessao()" style="background: (180deg, #000000 0%, #1B1B1B 50.52%, #000000 100%)">
+<body onload=" carregarConfig(), exibirConfig(), validarSessao()"
+    style="background: (180deg, #000000 0%, #1B1B1B 50.52%, #000000 100%)">
     <div class="background">
         <div class="navbar">
             <ul>
@@ -52,7 +54,7 @@
 
         </div>
 
-        <div class="imagem">
+        <div class="imagem1">
             <div class="container2">
                 <div class="caixas">
                     <div class="config">
@@ -68,7 +70,7 @@
                     </div>
                 </div>
                 <div class="dashboard">
-
+                    <canvas id="myChart" style="height: 400px"></canvas>
                 </div>
             </div>
             <div id="div_aguardar" class="div-aguardar">
@@ -85,7 +87,7 @@
 </html>
 
 <script>
-    
+
     var processador1 = sessionStorage.getItem("PROCESSADOR")
     var placa_mae1 = sessionStorage.getItem("PLACA_MAE")
     var memoria_ram1 = sessionStorage.getItem("MEMORIA_RAM")
@@ -96,18 +98,18 @@
 
     function exibirConfig() {
 
-        processador.innerHTML = '<b>Processador: </b> ' +  processador1
-        placa_mae.innerHTML = '<b>Placa-mãe: </b> ' +  placa_mae1
-        memoria_ram.innerHTML = '<b>Memoria ram </b> ' +  memoria_ram1
-        memoria_interna.innerHTML = '<b>Memória interna: </b> ' +  memoria_interna1
-        placa_de_video.innerHTML = '<b>Placa de vídeo: </b> ' +  placa_de_video1
-        fonte.innerHTML = '<b>Fonte: </b> ' +  fonte1
-        
-        
+        processador.innerHTML = '<b>Processador: </b> ' + processador1
+        placa_mae.innerHTML = '<b>Placa-mãe: </b> ' + placa_mae1
+        memoria_ram.innerHTML = '<b>Memoria ram </b> ' + memoria_ram1
+        memoria_interna.innerHTML = '<b>Memória interna: </b> ' + memoria_interna1
+        placa_de_video.innerHTML = '<b>Placa de vídeo: </b> ' + placa_de_video1
+        fonte.innerHTML = '<b>Fonte: </b> ' + fonte1
+
+
     }
 
     function carregarConfig() {
-        var idConfig = sessionStorage.FK_CONFIG 
+        var idConfig = sessionStorage.FK_CONFIG
 
         fetch(`/usuarios/carregarConfig/${idConfig}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -137,3 +139,29 @@
     }
 
 </script>
+
+<script>
+const ctx = document.getElementById('myChart');
+
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Moba', 'Competitivo', 'Battle Royale'],
+      datasets: [{
+        label: 'Tipos de jogo mais votados',
+        data: [20, 10, 3,],
+        borderWidth: 1,
+        backgroundColor:'#1DD882'
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+ 

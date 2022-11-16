@@ -8,7 +8,9 @@ CREATE TABLE usuario (
     CONSTRAINT chkEmail CHECK (email LIKE '%@%'),
     senha VARCHAR(45),
     fkConfig INT,
-    FOREIGN KEY (fkConfig) REFERENCES config (idConfig)
+    FOREIGN KEY (fkConfig) REFERENCES config (idConfig),
+    fkJogo INT,
+	FOREIGN KEY (fkJogo) REFERENCES tipoGame (idtipoGame)
 );
 
 CREATE TABLE config (
@@ -26,14 +28,6 @@ CREATE TABLE tipoGame (
     nome VARCHAR(45)
 );
 
-CREATE TABLE votacao (
-	fktipoGame INT,
-	FOREIGN KEY (fktipoGame) REFERENCES tipoGame (idtipoGame),
-	fkUsuario INT,
-	FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario),
-    PRIMARY KEY (fkTipoGame, fkUsuario)
-);
-
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
@@ -41,11 +35,6 @@ CREATE TABLE aviso (
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
 );
-
-INSERT INTO tipoGame (nome) VALUES 
-('moba'),
-('competitivo'),
-('battleroyale');
 
 select * from votacao;
 
