@@ -64,4 +64,10 @@ select * from usuario
 SELECT 
   *
 FROM
-    config;
+    usuario;
+    
+select * from usuario;
+
+SELECT COUNT(fkJogo) 'Count1' FROM usuario WHERE fkJogo = 1;
+SELECT COUNT(fkJogo) 'Count2' FROM usuario WHERE fkJogo = 2;
+SELECT COUNT(fkJogo) 'Count3' FROM usuario WHERE fkJogo = 3;

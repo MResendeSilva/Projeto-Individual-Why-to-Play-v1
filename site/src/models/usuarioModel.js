@@ -70,6 +70,32 @@ function carregarConfig(idConfig) {
     return database.executar(instrucao);
 }
 
+function carregarMoba() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ",)
+    var instrucao = `
+        SELECT COUNT(fkJogo) 'Count1' FROM usuario WHERE fkJogo = 1;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function carregarComp() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ",)
+    var instrucao = `
+        SELECT COUNT(fkJogo) 'Count2' FROM usuario WHERE fkJogo = 2;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function carregarBattle() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ",)
+    var instrucao = `
+        SELECT COUNT(fkJogo) 'Count3' FROM usuario WHERE fkJogo = 3;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 module.exports = {
     entrar,
@@ -78,4 +104,7 @@ module.exports = {
     cadastrarJogoFavorito,
     gravarConfig,
     carregarConfig,
+    carregarMoba,
+    carregarComp,
+    carregarBattle
 };
