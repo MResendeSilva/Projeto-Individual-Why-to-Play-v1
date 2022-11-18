@@ -18,13 +18,14 @@
         <div class="navbar">
             <ul>
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-                <li class="lista ativo">
-                    <a href="dashboard.html">
-                        <span class="icone"><img src="./assets/home.png" alt="" width="40px" height="40px"></span>
-                        <span class="label">HOME</span>
+                <li class="lista">
+                    <a href="dashboard-Home.html">
+                        <span class="icone"><img src="./assets/home.png" alt="" width="40px"
+                                height="40px"></span></span>
+                        <span class="label">PÁGINA INICIAL</span>
                     </a>
                 </li>
-                <li class="lista">
+                <li class="lista ativo">
                     <a href="config.html">
                         <span class="icone"><img src="./assets/config.png" alt="" width="40px"
                                 height="40px"></span></span>
@@ -37,7 +38,14 @@
                         <span class="label">VOTE AGORA</span>
                     </a>
                 </li>
-                <li class="lista">
+                <li class="lista ativo">
+                    <a href="dashboard.html">
+                        <span class="icone"><img src="./assets/estatistica.png" alt="" width="40px"
+                                height="40px"></span>
+                        <span class="label">ESTATÍSTICAS</span>
+                    </a>
+                </li>
+                <li class="lista ">
                     <a href="mural.html">
                         <span class="icone"><img src="./assets/feedback.png" alt="" width="40px" height="40px"></span>
                         <span class="label">AVALIAÇÃO DO USUÁRIO</span>
@@ -102,18 +110,6 @@
         validarSessao();
     }
 
-    function exibirConfig() {
-
-        processador.innerHTML = '<b>Processador: </b> ' + processador1
-        placa_mae.innerHTML = '<b>Placa-mãe: </b> ' + placa_mae1
-        memoria_ram.innerHTML = '<b>Memoria ram </b> ' + memoria_ram1
-        memoria_interna.innerHTML = '<b>Memória interna: </b> ' + memoria_interna1
-        placa_de_video.innerHTML = '<b>Placa de vídeo: </b> ' + placa_de_video1
-        fonte.innerHTML = '<b>Fonte: </b> ' + fonte1
-
-        carregarMoba()
-    }
-
     function carregarConfig() {
         var idConfig = sessionStorage.FK_CONFIG
 
@@ -139,6 +135,18 @@
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
+    }
+
+    function exibirConfig() {
+
+        processador.innerHTML = '<b>Processador: </b> ' + processador1
+        placa_mae.innerHTML = '<b>Placa-mãe: </b> ' + placa_mae1
+        memoria_ram.innerHTML = '<b>Memoria ram </b> ' + memoria_ram1
+        memoria_interna.innerHTML = '<b>Memória interna: </b> ' + memoria_interna1
+        placa_de_video.innerHTML = '<b>Placa de vídeo: </b> ' + placa_de_video1
+        fonte.innerHTML = '<b>Fonte: </b> ' + fonte1
+
+        carregarMoba()
     }
 
     function logout() {
@@ -217,10 +225,10 @@
 
 
 
-    const ctx = document.getElementById('myChart');
-
+    
     function gerarDashboard() {
-
+        const ctx = document.getElementById('myChart');
+        
         new Chart(ctx, {
             type: 'bar',
             data: {
