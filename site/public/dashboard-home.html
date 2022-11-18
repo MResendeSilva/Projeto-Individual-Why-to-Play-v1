@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="shortcut icon" href="./assets/favicon-16x16.png" type="image/x-icon">
+    <script src="./js/funcoes.js"></script>
+    <title>Página inicial</title>
+</head>
+
+<body onload=" iniciar()">
+    <div class="background">
+        <div class="navbar">
+            <ul>
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                <li class="lista ativo">
+                    <a href="dashboard-Home.html">
+                        <span class="icone"><img src="./assets/home.png" alt="" width="40px"
+                                height="40px"></span></span>
+                        <span class="label">PÁGINA INICIAL</span>
+                    </a>
+                </li>
+                <li class="lista">
+                    <a href="config.html">
+                        <span class="icone"><img src="./assets/config.png" alt="" width="40px"
+                                height="40px"></span></span>
+                        <span class="label">DESCUBRA SUA CONFIG</span>
+                    </a>
+                </li>
+                <li class="lista">
+                    <a href="vote.html">
+                        <span class="icone"><img src="./assets/vote.png" alt="" width="40px" height="40px"></span>
+                        <span class="label">VOTE AGORA</span>
+                    </a>
+                </li>
+                <li class="lista">
+                    <a href="dashboard.html">
+                        <span class="icone"><img src="./assets/estatistica.png" alt="" width="40px"
+                                height="40px"></span>
+                        <span class="label">ESTATÍSTICAS</span>
+                    </a>
+                </li>
+                <li class="lista ">
+                    <a href="mural.html">
+                        <span class="icone"><img src="./assets/feedback.png" alt="" width="40px" height="40px"></span>
+                        <span class="label">AVALIAÇÃO DO USUÁRIO</span>
+                    </a>
+                </li>
+                <li class="lista" id="last">
+                    <a href="index.html" onclick="logout()">
+                        <span class="icone"><img src="./assets/logout.png" alt="" width="40px" height="40px"></span>
+                        <span class="label">SAIR</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="imagem1">
+            <div class="container2">
+                <div class="caixas">
+                    <div class="config">
+                        <h2>A SUA CONFIGURAÇÃO PERFEITA</h2>
+                        <div class="texto">
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard">
+                    <h2>ESTILOS DE JOGOS MAIS VOTADOS</h2>
+                    <div class="graph">
+                    </div>
+                </div>
+            </div>
+            <div id="div_aguardar" class="div-aguardar">
+                <img src="./assets/loadinggreen.gif" id="img_aguarde">
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function iniciar() {
+        validarSessao();
+    }
+
+</script>

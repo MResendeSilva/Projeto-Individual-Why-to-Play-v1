@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="shortcut icon" href="./assets/favicon-16x16.png" type="image/x-icon">
     <script src="./js/funcoes.js"></script>
-    <title>Página do usuário</title>
+    <title>Estatísticas</title>
 </head>
 
 <body onload=" iniciar()">
@@ -25,7 +25,7 @@
                         <span class="label">PÁGINA INICIAL</span>
                     </a>
                 </li>
-                <li class="lista ativo">
+                <li class="lista">
                     <a href="config.html">
                         <span class="icone"><img src="./assets/config.png" alt="" width="40px"
                                 height="40px"></span></span>
@@ -117,7 +117,6 @@
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log(resposta[0].processador)
 
                     sessionStorage.PROCESSADOR = resposta[0].processador
                     sessionStorage.PLACA_MAE = resposta[0].placaMae
@@ -223,8 +222,6 @@
             });
     }
 
-
-
     
     function gerarDashboard() {
         const ctx = document.getElementById('myChart');
@@ -244,6 +241,7 @@
                     y: {
                         beginAtZero: true
                     }
+
                 }
             }
         });

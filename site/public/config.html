@@ -379,7 +379,7 @@
             if (resposta.ok) {
                 cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Sua Config foi salva no banco de dados! Ela aparecerá na página inicial sempre que você logar!";
+                mensagem_erro.innerHTML = `Sua Config foi salva no banco de dados! Ela aparecerá na página <span id="s1">estatísticas</span>!`;
 
                 sessionStorage.FK_CONFIG = config[posicao].fkConfig,
                     carregarConfig()
