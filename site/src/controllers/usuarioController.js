@@ -201,9 +201,9 @@ function carregarComp(req, res) {
 
 }
 
-function carregarBattle(req, res) {
+function carregarBat(req, res) {
 
-    usuarioModel.carregarBattle().then(function (resultado) {
+    usuarioModel.carregarBat().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -227,5 +227,5 @@ module.exports = {
     carregarConfig,
     carregarMoba,
     carregarComp,
-    carregarBattle
+    carregarBat
 }

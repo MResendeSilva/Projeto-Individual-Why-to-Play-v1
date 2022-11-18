@@ -23,8 +23,8 @@ router.get("/carregarComp", function (req, res) {
     usuarioController.carregarComp(req, res);
 });
 
-router.get("/carregarBattle", function (req, res) {
-    usuarioController.carregarBattle(req, res);
+router.get("/carregarBat", function (req, res) {
+    usuarioController.carregarBat(req, res);
 });
 
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js

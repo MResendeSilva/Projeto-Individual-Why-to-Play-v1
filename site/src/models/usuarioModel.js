@@ -88,7 +88,7 @@ function carregarComp() {
     return database.executar(instrucao);
 }
 
-function carregarBattle() {
+function carregarBat() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ",)
     var instrucao = `
         SELECT COUNT(fkJogo) 'Count3' FROM usuario WHERE fkJogo = 3;
@@ -106,5 +106,5 @@ module.exports = {
     carregarConfig,
     carregarMoba,
     carregarComp,
-    carregarBattle
+    carregarBat
 };

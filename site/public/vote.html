@@ -193,10 +193,9 @@
 
                 mensagem_erro.innerHTML = "Jogo favorito escolhido!";
 
-                sessionStorage.FK_TIPO_GAME = fkTipoGame
-
                 setTimeout(() => {
-                }, "2000")
+                    window.location = "dashboard.html"
+                }, "1000")
 
                 limparFormulario();
                 finalizarAguardar();

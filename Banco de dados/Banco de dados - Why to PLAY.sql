@@ -66,7 +66,7 @@ SELECT
 FROM
     usuario;
     
-select * from usuario;
+truncate table usuario, config, tipoGame;
 
 SELECT COUNT(fkJogo) 'Count1' FROM usuario WHERE fkJogo = 1;
 SELECT COUNT(fkJogo) 'Count2' FROM usuario WHERE fkJogo = 2;
