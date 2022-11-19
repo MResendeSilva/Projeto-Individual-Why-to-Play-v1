@@ -64,19 +64,38 @@
 
         <div class="imagem">
             <div class="container">
-                <h2>SEJA <b> CONFIGURAÇÃO</b></h2>
+                <h2>SEJA BEM-VINDO(A) A <b>PÁGINA DO USUÁRIO</b></h2>
                 <div class="boxesUp">
                     <div class="campo">
+                        <h2>AJUDE EM NOSSA PESQUISA!</h2>
+                        <p>Estamos fazendo uma pesquisa sobre os estilos de jogos que a galera mais
+                            gosta, por que você não ajuda a gente também? Clica no botão aí embaixo 
+                            e vote no seu estilo favorito!
+                        </p>
 
+                        <button class="bt2" onclick="redirecionar(1)">VOTAR AGORA</button>
                     </div>
 
                     <div class="campo">
+                        <h2>NOS CONTE SUA EXPERIÊNCIA!</h2>
+                        <p>Tem alguma sugestão, reclamação ou elogio para nos enviar? Clique
+                            no botão abaixo e deixe seu feedback para que possamos melhorar
+                            a experiencia de todos!
+                        </p>
 
+                        <button class="bt2" onclick="redirecionar(2)">AVALIAR AGORA</button>
                     </div>
                 </div>
                 <div class="boxesDown">
                     <div class="retangulo">
+                        <h2>DESCUBRA SUA CONFIG!</h2>
+                        <p>Ainda com dúvida de como quais peças escolher para montar seu pc? Fique
+                            tranquilo meu caro gafanhato pois nós vamos te ajudar! Clicando no botão
+                            abaixo, você será enviado para página <span>descubra sua config</span> e lá
+                            sigas as instruções para você descobrir sua configuração perfeita! 
+                        </p>
 
+                        <button class="bt2" onclick="redirecionar(3)">DESCOBRIR AGORA</button>
                     </div>
                 </div>
             </div>
@@ -98,6 +117,20 @@
 
     function iniciar() {
         validarSessao();
+    }
+
+    function logout() {
+        limparSessao()
+    }
+
+    function redirecionar(n) {
+        if (n == 1) {
+            window.location = "vote.html"
+        } else if (n == 2) {
+            window.location = "mural.html"
+        } else {
+            window.location = "config.html"
+        }
     }
 
 </script>
