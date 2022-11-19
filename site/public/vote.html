@@ -66,6 +66,11 @@
             <div class="container1">
                 <div class="conteudo">
                     <h2>VOTE NO SEU TIPO DE JOGO<b> FAVORITO</b></h2>
+                    <p>Selecione um tipo de jogo por clicar em seu nome, em seguida clique em <b>votar</b> e pronto! Seu
+                        voto vai ser computado
+                        e depois você já vai ser enviado para aba de <b>estatísticas</b>! Lá você poderá ver o <b>
+                            resultado da pesquisa!</b>
+                    </p>
                     <div class="caixaformulario">
                         <div class="caixa">
                             <div class="carta">
@@ -172,6 +177,10 @@
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Você só pode votar uma vez!";
 
+            setTimeout(() => {
+                window.location = "dashboard.html"
+            }, "3000")
+
             finalizarAguardar();
             return false;
         } else {
@@ -212,7 +221,7 @@
 
                 setTimeout(() => {
                     window.location = "dashboard.html"
-                }, "2000")
+                }, "3000")
 
                 limparFormulario();
                 finalizarAguardar();

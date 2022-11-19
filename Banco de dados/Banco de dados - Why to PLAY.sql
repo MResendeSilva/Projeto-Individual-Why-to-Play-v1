@@ -53,12 +53,12 @@ INSERT INTO config VALUES
 (null, '1x Intel Core - I5 10600KF (4.8Ghz Turbo)', '1x Asus TUF Gaming B450M', '2x HyperX Fury - 8GB DDR4 2666MHz', '1x SSD 240 GB Gigabyte', '1x Galax GeForce GTX 1060 Super 6GB 1-CLICK OC','1x Gamemax GM500 500W, 80 Plus Bronze, PFC Ativo'),
 (null, '1x AMD - Ryzen 7 5700X (4.6Ghz Turbo)', '1x Gigabyte B550M Aorus Elite', '2x 8GB 3200MHz, DDR4 Kingston Fury Beast RGB', '1x SSD NVME 512GB WD GREEN', '1x RTX 2060 1-Click OC Galax 6gb','1x Fonte Corsair 650W, 80 Plus Bronze'),
 (null, '1x Intel Core - I9 10900k (5.3Ghz Turbo)', '1x Asus Rog Strix Z490-G Gaming', '4x 8GB 3200MHz, DDR4 Kingston Fury Beast RGB', '1x SSD 1 TB WD Black', '1x RTX 3070 TI 1-Click OC Galax 8gb','1x Corsair 700W, 80 Plus Gold'),
-(null, 'NÃO DEFINIDO', 'NÃO DEFINIDO', 'NÃO DEFINIDO', 'NÃO DEFINIDO', 'Vá para aba "descobrir minha config!"','para gerar sua configuração');
+(null, 'NÃO DEFINIDO', 'NÃO DEFINIDO', 'NÃO DEFINIDO', 'NÃO DEFINIDO', 'NÃO DEFINIDO','NÃO DEFINIDO');
 
 
 
 select * from usuario 
-	join config on idConfig = fkConfig;
+	right join config on idConfig = fkConfig;
 
 
 SELECT 
@@ -66,7 +66,6 @@ SELECT
 FROM
     usuario;
     
-truncate table usuario, config, tipoGame;
 
 SELECT COUNT(fkJogo) 'Count1' FROM usuario WHERE fkJogo = 1;
 SELECT COUNT(fkJogo) 'Count2' FROM usuario WHERE fkJogo = 2;
