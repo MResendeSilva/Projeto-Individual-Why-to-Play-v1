@@ -109,17 +109,17 @@
                         </div>
                     </div>
                     <button class="botao" onclick="cadastrarJogoFavorito()">VOTAR!</button>
-                        <div class="alerta_erro">
-                            <div class="card_erro" id="cardErro">
-                                <span id="mensagem_erro"></span>
-                            </div>
+                    <div class="alerta_erro">
+                        <div class="card_erro" id="cardErro">
+                            <span id="mensagem_erro"></span>
                         </div>
-                        <div id="div_aguardar" class="loading-div">
-                        </div>
+                    </div>
+                    <div id="div_aguardar" class="loading-div">
+                    </div>
 
-                        <div id="div_erros_login">
+                    <div id="div_erros_login">
 
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -133,7 +133,7 @@
     function logout() {
         limparSessao()
     }
-    
+
     var idJogo = 0
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
@@ -165,22 +165,26 @@
 
             finalizarAguardar();
             return false;
-        }
-        else {
+
+        } else if (sessionStorage.getItem("FK_TIPO_GAME") != "null") {
+
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Você só pode votar uma vez!";
+
+            finalizarAguardar();
+            return false;
+        } else {
             setInterval(sumirMensagem, 5000)
         }
 
         var idUsuario = sessionStorage.getItem("ID_USUARIO");
 
-        // Enviando o valor da nova input
         fetch("/usuarios/cadastrarJogo", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
                 fkTipoGame: idJogo,
                 fkUsuario: idUsuario
             })
@@ -192,6 +196,8 @@
                 cardErro.style.display = "block";
 
                 mensagem_erro.innerHTML = "Jogo favorito escolhido!";
+
+                sessionStorage.FK_TIPO_GAME = idJogo
 
                 setTimeout(() => {
                     window.location = "dashboard.html"

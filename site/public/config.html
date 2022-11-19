@@ -68,7 +68,7 @@
                     <p>Selecione <b>3 jogos </b>que mais se assemelham aos jogos que você pretende jogar e depois clique
                         no botao
                         <b>ver resultado</b> e confira a config <b>perfeita para você!</b>  
-                        <b>*</b> Critérios para gerar config <b>---></b> resolução:<b> 1920x1080 (FullHD)</b> - gráficos nos jogos: <b>Ultra (Máximo possível)</b> <b>*</b>
+                        <b>*</b> Critérios para gerar config <b>---></b> resolução:<b> 1920x1080 (FullHD)</b> - gráficos nos jogos: <b>Ultra (Máximo possível)</b> à <b>60 FPS</b> <b>*</b>
                     </p>
 
                     <div class="caixaformulario">
@@ -364,7 +364,6 @@
 
         var idUsuario = sessionStorage.getItem("ID_USUARIO");
 
-        // Enviando o valor da nova input
         fetch("/usuarios/gravarConfig", {
             method: "POST",
             headers: {
@@ -410,7 +409,6 @@
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log(resposta[0].processador)
 
                     sessionStorage.PROCESSADOR = resposta[0].processador
                     sessionStorage.PLACA_MAE = resposta[0].placaMae

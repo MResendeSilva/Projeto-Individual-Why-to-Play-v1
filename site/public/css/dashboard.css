@@ -10,12 +10,12 @@
 }
 
 .background {
-    background: (180deg, #000000 0%, #1B1B1B 50.52%, #000000 100%);
-    background-repeat: repeat-x;
+    background: linear-gradient(180deg, #000000 0%, #1B1B1B 50.52%, #000000 100%);
+    background-size: cover;
+    background-repeat: repeat-y;
     width: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
 }
 
 .navbar {
@@ -230,3 +230,13 @@
     color: #1DD882;
     font-weight: 600;
 }
+
+.bt {
+    width: 200px;
+    height: 30px;
+    background-color: #1DD882;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }

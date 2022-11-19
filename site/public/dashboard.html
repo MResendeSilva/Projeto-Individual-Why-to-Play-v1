@@ -66,7 +66,7 @@
                 <div class="conteudo">
                     <h2>RESUMO DAS <b>ESTATÍSTICAS</b></h2>
                     <div class="caixas">
-                        <div class="config">
+                        <div id ="config" class="config">
                             <h2>A SUA CONFIGURAÇÃO PERFEITA</h2>
                             <div class="texto">
                                 <p id="processador"> <b>Processador:</b> <br> </p>
@@ -141,14 +141,29 @@
 
     function exibirConfig() {
 
-        processador.innerHTML = '<b>Processador: </b> ' + processador1
-        placa_mae.innerHTML = '<b>Placa-mãe: </b> ' + placa_mae1
-        memoria_ram.innerHTML = '<b>Memoria ram </b> ' + memoria_ram1
-        memoria_interna.innerHTML = '<b>Memória interna: </b> ' + memoria_interna1
-        placa_de_video.innerHTML = '<b>Placa de vídeo: </b> ' + placa_de_video1
-        fonte.innerHTML = '<b>Fonte: </b> ' + fonte1
+        if (sessionStorage.getItem("FK_CONFIG") == 7) {
 
-        carregarMoba()
+            config.innerHTML = `
+            <h2> VOCÊ NÃO POSSUI CONFIG DEFINIDA! </h2> <br>
+            <center> <p id="placa_mae"> clique no botão abaixo, faça o teste e descubra sua configuração! </p> <br><br>
+            <button class="bt" onclick="redirecionar()">Redirecionar</button></center>
+            
+            `
+            carregarMoba()
+        } else {
+            processador.innerHTML = '<b>Processador: </b> ' + processador1
+            placa_mae.innerHTML = '<b>Placa-mãe: </b> ' + placa_mae1
+            memoria_ram.innerHTML = '<b>Memoria ram </b> ' + memoria_ram1
+            memoria_interna.innerHTML = '<b>Memória interna: </b> ' + memoria_interna1
+            placa_de_video.innerHTML = '<b>Placa de vídeo: </b> ' + placa_de_video1
+            fonte.innerHTML = '<b>Fonte: </b> ' + fonte1
+
+            carregarMoba()
+        }
+    }
+
+    function redirecionar() {
+        window.location = "config.html"
     }
 
     function logout() {
