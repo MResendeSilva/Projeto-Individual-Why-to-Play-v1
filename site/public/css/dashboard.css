@@ -240,3 +240,7 @@
     cursor: pointer;
     transition: all 0.3s;
   }
+
+  .bt:hover {
+    transform: scale(1.03);
+  }

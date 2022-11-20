@@ -136,7 +136,6 @@
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log(resposta[0].processador)
 
                     sessionStorage.PROCESSADOR = resposta[0].processador
                     sessionStorage.PLACA_MAE = resposta[0].placaMae

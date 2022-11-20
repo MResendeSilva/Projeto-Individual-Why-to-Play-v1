@@ -1,3 +1,10 @@
+.fundo {
+  background: linear-gradient(180deg, #000000 0%, #1B1B1B 50.52%, #000000 100%);
+  background-size: cover;
+  width: 100%;
+  display: flex;
+}
+
 .imagem .container {
   padding: 5% 20%
 }
