@@ -77,6 +77,12 @@
 
             finalizarAguardar();
             return false;
+        } else if (senhaVar != confirmacaoSenhaVar) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "As senhas não conferem! Por favor confira suas senhas!";
+
+            finalizarAguardar();
+            return false;
         }
         else {
             setInterval(sumirMensagem, 5000)
