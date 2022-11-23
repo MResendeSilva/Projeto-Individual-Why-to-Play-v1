@@ -1,14 +1,13 @@
 .banner {
     height: 100vh;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 }
 
 .banner .container {
     margin: 70px  auto;
 }
-
 
 .video {
     width: auto;
@@ -21,11 +20,27 @@
     align-items: center;
     text-align: justify;
     width: 600px;
+    font-size: 15px;
+    cursor: default;
 }
 
 .texto h4 {
     margin-bottom: 20px;
     font-size: 25px;
     font-weight: 600;
+    color: #1DD882;
+}
+
+.texto a {
+    font-size: 15px;
+    color: #1DD882;
+}
+
+.texto a:hover{
+    border-bottom: 0.5px solid #1DD882;
+}
+
+.texto span {
+    font-size: 15px;
     color: #1DD882;
 }

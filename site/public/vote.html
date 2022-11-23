@@ -83,7 +83,7 @@
                                         <p>LOL, Dota 2, Star Craft...</p>
                                     </div>
                                 </div>
-                                <button class="btEscolher" onclick="escolho_moba()">Moba!</button>
+                                <button class="btEscolher" onclick="escolher(1)">Moba!</button>
                             </div>
 
                             <div class="carta">
@@ -96,7 +96,7 @@
                                         <p>CS:GO, Valorant, Rainbow Six...</p>
                                     </div>
                                 </div>
-                                <button class="btEscolher" onclick="escolho_comp()">Competitivo!</button>
+                                <button class="btEscolher" onclick="escolher(2)">Competitivo!</button>
                             </div>
 
                             <div class="carta">
@@ -109,7 +109,7 @@
                                         <p>Pubg, COD Warzone, Fortinite...</p>
                                     </div>
                                 </div>
-                                <button class="btEscolher" onclick="escolho_battle()">Battle Royale!</button>
+                                <button class="btEscolher" onclick="escolher(3)">Battle Royale!</button>
                             </div>
                         </div>
                     </div>
@@ -144,22 +144,19 @@
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    function escolho_moba() {
+    function escolher(Jogo) {
 
-        idJogo = 1
-        mensagem.innerHTML = `Você escolheu <span id="s1">Moba!</span>`
-    }
+        if(Jogo == 1) {
+            idJogo = 1
+            mensagem.innerHTML = `Você escolheu <span id="s1">Moba!</span>`
+        } else if(Jogo == 2) {
+            idJogo = 2
+            mensagem.innerHTML = `Você escolheu <span id="s1">Competitivo!</span>`
+        } else {
+            idJogo = 3
+            mensagem.innerHTML = `Você escolheu <span id="s1">Battle royale!</span>`
+        }
 
-    function escolho_comp() {
-
-        idJogo = 2
-        mensagem.innerHTML = `Você escolheu <span id="s1">Competitivo!</span>`
-    }
-
-    function escolho_battle() {
-
-        idJogo = 3
-        mensagem.innerHTML = `Você escolheu <span id="s1">Battle royale!</span>`
     }
 
     function cadastrarJogoFavorito() {
