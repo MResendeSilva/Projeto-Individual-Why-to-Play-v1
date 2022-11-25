@@ -13,6 +13,10 @@
     width: auto;
 }
 
+.perfil {
+    border-radius: 10%;
+}
+
 .texto {
     display: flex;
     flex-direction: column;

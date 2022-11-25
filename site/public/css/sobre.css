@@ -1,0 +1,189 @@
+.social {
+    margin-bottom: 50px;
+    height: auto;
+    box-shadow: 0px 5px 12px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.content1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+
+.social .content1 h4 {
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: 700;
+    color: black;
+    text-align: center;
+    
+}
+
+.social .content1 p {
+    color: black;
+    font-size: 20px;
+}
+
+.social .content1 b {
+    color: #1DD882;
+    font-weight: 600;
+}
+
+.social2 {
+    height: auto;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+}
+
+.social2 .container {
+    margin: 0 auto;
+}
+
+.social2 .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.social2 .content h4 {
+    margin-bottom: 5rem;
+    font-size: 55px;
+    font-weight: 600;
+    color: #1DD882;
+    display: flex;
+    justify-content: center;
+}
+
+.social2 .conteudo {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.social2 .texto {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+}
+
+.social2 .conteudo p {
+    width: 700px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 40px;
+    color: #1DD882;
+}
+
+.values {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px;
+    background-color: #F2F2F2;
+}
+
+.caixaformulario {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 40px;
+}
+
+.campo {
+    width: 20.00vw;
+    min-height: max-content;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.campo img {
+    width: 145px;
+    height: 145px;
+}
+
+.campo h4 {
+    padding-top: 13px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #64173C;
+}
+
+.campo p {
+    justify-content: center;
+    padding: 12px 8px;
+    font-size: 16px;
+    text-align: center;
+    color: #000000;
+}
+
+.social3 {
+    height: auto;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.social3 .content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.social3 .content img {
+    border-radius: 2%;
+}
+
+.texto3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+}
+
+.social3 .content h2 {
+    margin-bottom: 40px;
+    font-size: 38px;
+    font-weight: 600;
+    color: #1DD882;
+}
+
+.social3 .content p {
+    margin-bottom: 80px;
+    color: black;
+    font-size: 20px;
+    width: 100%;
+    text-align: justify;
+}
+
+
+.social3 .content b {
+    color: #1DD882;
+    font-weight: 600;
+    text-align: center;
+}
+
+.botao3 {
+    width: 200px;
+    height: 60px;
+    background-color: #1DD882;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.8s;
+}
+
+.botao3:hover {
+    -webkit-transform: scale(1);
+    transform: scale(1.07);
+}
