@@ -103,9 +103,9 @@ function cadastrarJogoFavorito(req, res) {
         res.status(400).send("Seu idJogo está undefined!");
     } else if (fkUsuario == undefined) {
         res.status(400).send("Seu idUsuario está undefined!");
-    }else {
+    } else {
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarJogoFavorito(fktipoGame,fkUsuario)
+        usuarioModel.cadastrarJogoFavorito(fktipoGame, fkUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -132,9 +132,9 @@ function gravarConfig(req, res) {
         res.status(400).send("Sua fkConfig está undefined!");
     } else if (idUsuario == undefined) {
         res.status(400).send("Seu idUsuario está undefined!");
-    }else {
+    } else {
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel. gravarConfig(fkConfig,idUsuario)
+        usuarioModel.gravarConfig(fkConfig, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -153,7 +153,7 @@ function gravarConfig(req, res) {
 }
 
 function carregarConfig(req, res) {
-    
+
     var idConfig = req.params.idConfig;
 
     usuarioModel.carregarConfig(idConfig).then(function (resultado) {

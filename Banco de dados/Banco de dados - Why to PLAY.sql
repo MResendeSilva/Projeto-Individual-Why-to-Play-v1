@@ -28,15 +28,16 @@ CREATE TABLE tipoGame (
     nome VARCHAR(45)
 );
 
-CREATE TABLE aviso (
+CREATE TABLE avaliacao (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
 	descricao VARCHAR(250),
 	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
+	FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario),
+    estado INT
 );
 
-select * from vo;
+select * from avaliacao;
 
 select * from USUARIO;
 
@@ -44,6 +45,7 @@ INSERT INTO tipoGame VALUES
 (null,'moba'),
 (null,'competitivo'),
 (null,'battleroyale');
+
 
 
 INSERT INTO config VALUES
@@ -64,7 +66,7 @@ select * from usuario
 SELECT 
   *
 FROM
-    usuario;
+    avaliacao;
     
 
 SELECT COUNT(fkJogo) 'Count1' FROM usuario WHERE fkJogo = 1;

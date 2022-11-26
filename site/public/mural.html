@@ -14,8 +14,8 @@
 </head>
 
 <body class="fundo" onload=" atualizarFeed()">
-    
-    <div class="fundo" >
+
+    <div class="fundo">
         <div class="navbar">
             <ul>
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
@@ -104,6 +104,9 @@
 
 <script>
 
+    var estado = 0
+    sessionStorage.ESTADO = estado
+
     function logout() {
         limparSessao()
     }
@@ -114,40 +117,70 @@
         document.getElementById("form_postagem").reset();
     }
 
-    function publicar() {
+    function carregarEstado() {
         var idUsuario = sessionStorage.ID_USUARIO;
 
-        var corpo = {
-            titulo: form_postagem.titulo.value,
-            descricao: form_postagem.descricao.value
-        }
+        fetch(`/avisos/carregarEstado/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-        fetch(`/avisos/publicar/${idUsuario}`, {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(corpo)
-        }).then(function (resposta) {
+                    sessionStorage.ESTADO = resposta[0]
+                    estado = sessionStorage.QTD_COMP;
+                });
 
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "mural.html";
-                limparFormulario();
-                finalizarAguardar();
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
             } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                console.error('Nenhum dado encontrado ou erro na API');
             }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
 
-        return false;
+    function publicar() {
+
+        if (sessionStorage.ESTADO == 0) {
+            var idUsuario = sessionStorage.ID_USUARIO;
+            estado++
+            var corpo = {
+                titulo: form_postagem.titulo.value,
+                descricao: form_postagem.descricao.value,
+                estado,
+            }
+
+            fetch(`/avisos/publicar/${idUsuario}`, {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(corpo)
+            }).then(function (resposta) {
+                
+                console.log("resposta: ", resposta);
+                
+                if (resposta.ok) {
+                    window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+                    window.location = "mural.html";
+                    
+                    sessionStorage.ESTADO = estado
+                    limparFormulario();
+                    finalizarAguardar();
+                } else if (resposta.status == 404) {
+                    window.alert("Deu 404!");
+                } else {
+                    throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+            return false;
+        } else {
+            alert("Você só pode fazer uma avaliação!")
+            return false;
+        }
 
     }
 
@@ -244,7 +277,7 @@
                         divButtons.appendChild(btnDeletar);
                         feed.appendChild(divPublicacao);
                     }
-
+                    carregarEstado();
                     finalizarAguardar();
                 });
             } else {
