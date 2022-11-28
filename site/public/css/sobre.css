@@ -153,7 +153,7 @@
 
 .social3 .content h2 {
     margin-bottom: 40px;
-    font-size: 38px;
+    font-size: 34px;
     font-weight: 600;
     color: #1DD882;
 }
@@ -186,4 +186,61 @@
 .botao3:hover {
     -webkit-transform: scale(1);
     transform: scale(1.07);
+}
+
+
+.social4 {
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.social4 .content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.social4 .content img {
+    border-radius: 2%;
+}
+
+.texto4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+}
+
+.social4 .content h2 {
+    margin-bottom: 40px;
+    font-size: 34px;
+    font-weight: 600;
+    color: #1DD882;
+    
+}
+
+.social4 .content p {
+    margin-bottom: 80px;
+    color: black;
+    font-size: 20px;
+    width: 100%;
+    text-align: justify;
+}
+
+
+.social4 .content b {
+    color: #1DD882;
+    font-weight: 600;
+    text-align: center;
+}
+
+.imagem {
+    display: flex;
+    align-items: center;
+}
+
+.texto3 span {
+    font-size: 20px;
+    color: #1DD882;
 }
