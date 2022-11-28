@@ -29,12 +29,13 @@ CREATE TABLE tipoGame (
 );
 
 CREATE TABLE avaliacao (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+	id INT AUTO_INCREMENT,
 	titulo VARCHAR(100),
 	descricao VARCHAR(250),
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario),
-    estado INT
+    estado INT,
+    PRIMARY KEY (id,fk_Usuario)
 );
 
 select * from avaliacao;
