@@ -106,11 +106,6 @@
     justify-content: space-evenly;
 }
 
-.campo img {
-    width: 145px;
-    height: 145px;
-}
-
 .campo h4 {
     padding-top: 13px;
     font-weight: 700;
@@ -142,6 +137,7 @@
 
 .social3 .content img {
     border-radius: 2%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .texto3 {
@@ -203,6 +199,7 @@
 
 .social4 .content img {
     border-radius: 2%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .texto4 {
