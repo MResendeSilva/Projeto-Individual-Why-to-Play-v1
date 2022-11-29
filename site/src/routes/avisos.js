@@ -19,8 +19,12 @@ router.get("/pesquisar/:descricao", function (req, res) {
     avisoController.pesquisarDescricao(req, res);
 });
 
-router.get("/carregarEstado/:idUsuario", function (req, res) {
-    avisoController.carregarEstado(req, res);
+router.get("/validarInformacao/:idUsuario", function (req, res) {
+    avisoController.validarInformacao(req, res);
+});
+
+router.get("/calcularMedia", function (req, res) {
+    avisoController.calcularMedia(req, res);
 });
 
 router.post("/publicar/:idUsuario", function (req, res) {

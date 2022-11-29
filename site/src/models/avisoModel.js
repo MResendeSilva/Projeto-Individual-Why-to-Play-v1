@@ -92,7 +92,7 @@ function deletar(idAviso) {
     return database.executar(instrucao);
 }
 
-function carregarEstado(idUsuario) {
+function validarInformacao(idUsuario) {
     console.log("ACESSEI O avaliacao MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPorUsuario()");
     var instrucao = `
         SELECT 
@@ -114,6 +114,17 @@ function carregarEstado(idUsuario) {
     return database.executar(instrucao);
 }
 
+
+function calcularMedia() {
+    console.log("ACESSEI O avaliacao MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPorUsuario()");
+    var instrucao = `
+    SELECT nota AS nota FROM avaliacao;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
 module.exports = {
     listar,
     listarPorUsuario,
@@ -121,5 +132,6 @@ module.exports = {
     publicar,
     editar,
     deletar,
-    carregarEstado
+    validarInformacao,
+    calcularMedia
 }

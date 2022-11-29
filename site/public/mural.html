@@ -107,6 +107,7 @@
     var estado = 0
     sessionStorage.ESTADO = estado
 
+
     function logout() {
         limparSessao()
     }
@@ -117,16 +118,17 @@
         document.getElementById("form_postagem").reset();
     }
 
-    function carregarEstado() {
+    function validarInformacao() {
         var idUsuario = sessionStorage.ID_USUARIO;
 
-        fetch(`/avisos/carregarEstado/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/avisos/validarInformacao/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
                     sessionStorage.ESTADO = resposta[0].estado
                     estado = sessionStorage.ESTADO;
+                    sessionStorage.ID_AVISO = resposta[0].idAviso
                 });
 
             } else {
@@ -139,7 +141,7 @@
     }
 
     function publicar() {
-        
+
         var nota = form_postagem.nota.value
 
         if (sessionStorage.ESTADO == 0) {
@@ -172,8 +174,10 @@
                     if (resposta.ok) {
                         window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
                         window.location = "mural.html";
+                        console.log(resposta[0].estado);
 
                         sessionStorage.ESTADO = estado
+
                         limparFormulario();
                         finalizarAguardar();
                     } else if (resposta.status == 404) {
@@ -197,33 +201,44 @@
     }
 
     function editar(idAviso) {
-        sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-        console.log("cliquei em editar - " + idAviso);
-        window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-        window.location = "edicao-avaliacao.html"
+        if (sessionStorage.ID_AVISO != idAviso) {
+            alert("Você só pode editar a sua avaliação!")
+            return false;
+        } else {
 
+            sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
+            console.log("cliquei em editar - " + idAviso);
+            window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
+            window.location = "edicao-avaliacao.html"
+            
+        }
     }
 
     function deletar(idAviso) {
-        console.log("Criar função de apagar post escolhido - ID" + idAviso);
-        fetch(`/avisos/deletar/${idAviso}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(function (resposta) {
+        if (sessionStorage.ID_AVISO != idAviso) {
+            alert("Você só pode deletar a sua avaliação!")
+            return false;
+        } else {
+            console.log("Criar função de apagar post escolhido - ID" + idAviso);
+            fetch(`/avisos/deletar/${idAviso}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (resposta) {
 
-            if (resposta.ok) {
-                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "mural.html"
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
+                if (resposta.ok) {
+                    window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                    window.location = "mural.html"
+                } else if (resposta.status == 404) {
+                    window.alert("Deu 404!");
+                } else {
+                    throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        }
     }
 
     function atualizarFeed() {
@@ -246,7 +261,6 @@
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
 
-                        // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
                         var spanID = document.createElement("span");
                         var spannota = document.createElement("span");
@@ -289,7 +303,7 @@
                         divButtons.appendChild(btnDeletar);
                         feed.appendChild(divPublicacao);
                     }
-                    carregarEstado();
+                    validarInformacao();
                     finalizarAguardar();
                 });
             } else {

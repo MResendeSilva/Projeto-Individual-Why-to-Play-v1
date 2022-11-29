@@ -239,8 +239,47 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
-  }
+}
 
-  .bt:hover {
+.bt:hover {
     transform: scale(1.03);
-  }
+}
+
+.boxesDown {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 20px;
+}
+
+.rec {
+    width: 600px;
+    height: 200px;
+    background-color: #282828;
+    box-shadow: 6px 6px 0px #1DD882;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rec h2 {
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: start;
+}
+
+.rec p {
+    color: #ffffff;
+    font-size: 13px;
+    width: 70%;
+    text-align: start;
+}
+
+.rec h1 {
+    font-size: 50px;
+    font-weight: 300;
+    color: #ffffff;
+
+}

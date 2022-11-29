@@ -135,10 +135,10 @@ function deletar(req, res) {
 }
 
 
-function carregarEstado(req, res) {
+function validarInformacao(req, res) {
     var idUsuario = req.params.idUsuario;
 
-    avisoModel.carregarEstado(idUsuario)
+    avisoModel.validarInformacao(idUsuario)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -160,6 +160,20 @@ function carregarEstado(req, res) {
         );
 }
 
+function calcularMedia(req, res) {
+    avisoModel.listar().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     testar,
     listar,
@@ -168,5 +182,6 @@ module.exports = {
     publicar,
     editar,
     deletar,
-    carregarEstado
+    validarInformacao,
+    calcularMedia,
 }

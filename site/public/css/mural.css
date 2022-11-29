@@ -141,3 +141,19 @@
   color:#1DD882;
   font-weight: 600;
 }
+
+.imagem input {
+  padding: 0 5px;
+}
+
+.imagem textarea {
+  padding: 0 5px;
+}
+
+.imagem input:focus-visible {
+  outline: none;
+}
+
+.imagem textarea:focus-visible {
+  outline: none;
+}
