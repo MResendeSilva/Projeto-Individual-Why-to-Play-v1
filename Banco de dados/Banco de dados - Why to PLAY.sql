@@ -21,7 +21,7 @@ CREATE TABLE usuario (
     nome VARCHAR(45),
     email VARCHAR(45),
     CONSTRAINT chkEmail CHECK (email LIKE '%@%'),
-    senha VARCHAR(45),
+    senha VARCHAR(256),
     fkConfig INT,
     FOREIGN KEY (fkConfig) REFERENCES config (idConfig),
     fkJogo INT,
