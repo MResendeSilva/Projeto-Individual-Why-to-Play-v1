@@ -5,10 +5,10 @@ function listar() {
     var instrucao = `
         SELECT 
             a.id AS idAviso,
-            a.titulo,
+            a.nota,
             a.descricao,
             a.fk_usuario,
-            a.estado,
+            a.estado as estado,
             u.idUsuario AS idUsuario,
             u.nome,
             u.email,
@@ -26,10 +26,10 @@ function pesquisarDescricao(texto) {
     var instrucao = `
         SELECT 
             a.id AS idAviso,
-            a.titulo,
+            a.nota,
             a.descricao,
             a.fk_usuario,
-            a.estado,
+            a.estado as estado,
             u.idUsuario AS idUsuario,
             u.nome,
             u.email,
@@ -48,10 +48,10 @@ function listarPorUsuario(idUsuario) {
     var instrucao = `
         SELECT 
             a.id AS idAviso,
-            a.titulo,
+            a.nota,
             a.descricao,
             a.fk_usuario,
-            a.estado,
+            a.estado as estado,
             u.idUsuario AS idUsuario,
             u.nome,
             u.email,
@@ -65,10 +65,10 @@ function listarPorUsuario(idUsuario) {
     return database.executar(instrucao);
 }
 
-function publicar(titulo, descricao, idUsuario, estado) {
-    console.log("ACESSEI O avaliacao MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", titulo, descricao, idUsuario, estado);
+function publicar(nota, descricao, idUsuario, estado) {
+    console.log("ACESSEI O avaliacao MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", nota, descricao, idUsuario, estado);
     var instrucao = `
-        INSERT INTO avaliacao (titulo, descricao, fk_usuario, estado) VALUES ('${titulo}', '${descricao}', ${idUsuario}, ${estado});
+        INSERT INTO avaliacao (nota, descricao, fk_usuario, estado) VALUES (${nota}, '${descricao}', ${idUsuario}, ${estado});
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -97,10 +97,10 @@ function carregarEstado(idUsuario) {
     var instrucao = `
         SELECT 
             a.id AS idAviso,
-            a.titulo,
+            a.nota,
             a.descricao,
             a.fk_usuario,
-            a.estado,
+            a.estado as estado,
             u.idUsuario AS idUsuario,
             u.nome,
             u.email,

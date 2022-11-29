@@ -68,9 +68,9 @@
                         <div class="div-form">
                             <form id="form_postagem" method="post" onsubmit="return publicar()">
                                 <label>
-                                    Título:
+                                    Nota de 0 à 10:
                                     <br>
-                                    <input name="titulo" id="titulo" maxlength="100" type="text">
+                                    <input name="nota" id="nota" maxlength="100" type="number">
                                 </label>
                                 <br>
                                 <label>
@@ -125,8 +125,8 @@
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                    sessionStorage.ESTADO = resposta[0]
-                    estado = sessionStorage.QTD_COMP;
+                    sessionStorage.ESTADO = resposta[0].estado
+                    estado = sessionStorage.ESTADO;
                 });
 
             } else {
@@ -139,44 +139,56 @@
     }
 
     function publicar() {
+        
+        var nota = form_postagem.nota.value
 
         if (sessionStorage.ESTADO == 0) {
-            var idUsuario = sessionStorage.ID_USUARIO;
-            estado++
-            var corpo = {
-                titulo: form_postagem.titulo.value,
-                descricao: form_postagem.descricao.value,
-                estado,
+            if (nota < 0 || nota > 10) {
+
+                alert(`O campo nota foi preenchido de forma errada!`)
+                form_postagem.nota.value = ``
+                return false;
+
+            } else {
+
+                var idUsuario = sessionStorage.ID_USUARIO;
+                estado++
+                var corpo = {
+                    nota,
+                    descricao: form_postagem.descricao.value,
+                    estado,
+                }
+
+                fetch(`/avisos/publicar/${idUsuario}`, {
+                    method: "post",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(corpo)
+                }).then(function (resposta) {
+
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+                        window.location = "mural.html";
+
+                        sessionStorage.ESTADO = estado
+                        limparFormulario();
+                        finalizarAguardar();
+                    } else if (resposta.status == 404) {
+                        window.alert("Deu 404!");
+                    } else {
+                        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                    }
+                }).catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                    finalizarAguardar();
+                });
+
+                return false;
             }
 
-            fetch(`/avisos/publicar/${idUsuario}`, {
-                method: "post",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(corpo)
-            }).then(function (resposta) {
-                
-                console.log("resposta: ", resposta);
-                
-                if (resposta.ok) {
-                    window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                    window.location = "mural.html";
-                    
-                    sessionStorage.ESTADO = estado
-                    limparFormulario();
-                    finalizarAguardar();
-                } else if (resposta.status == 404) {
-                    window.alert("Deu 404!");
-                } else {
-                    throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-                finalizarAguardar();
-            });
-
-            return false;
         } else {
             alert("Você só pode fazer uma avaliação!")
             return false;
@@ -237,7 +249,7 @@
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
                         var spanID = document.createElement("span");
-                        var spanTitulo = document.createElement("span");
+                        var spannota = document.createElement("span");
                         var spanNome = document.createElement("span");
                         var divDescricao = document.createElement("div");
                         var divButtons = document.createElement("div");
@@ -245,17 +257,17 @@
                         var btnDeletar = document.createElement("button");
 
 
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
+                        spanID.innerHTML = `ID: <b>  ${publicacao.idAviso}  </b>`;
+                        spannota.innerHTML = `Nota: <span class="s1"> ${publicacao.nota} </span>`;
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                        divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
+                        divDescricao.innerHTML = "Avaliação: <b>" + publicacao.descricao + "</b>";
                         btnEditar.innerHTML = "Editar";
                         btnDeletar.innerHTML = "Deletar";
 
                         divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                        spannota.id = "inputNumero" + publicacao.idAviso;
                         spanNome.className = "publicacao-nome";
-                        spanTitulo.className = "publicacao-titulo";
+                        spannota.className = "publicacao-nota";
                         divDescricao.className = "publicacao-descricao";
 
                         divButtons.className = "div-buttons"
@@ -270,7 +282,7 @@
 
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
-                        divPublicacao.appendChild(spanTitulo);
+                        divPublicacao.appendChild(spannota);
                         divPublicacao.appendChild(divDescricao);
                         divPublicacao.appendChild(divButtons);
                         divButtons.appendChild(btnEditar);

@@ -66,12 +66,12 @@ function pesquisarDescricao(req, res) {
 }
 
 function publicar(req, res) {
-    var titulo = req.body.titulo; 
+    var nota = req.body.nota; 
     var descricao = req.body.descricao;
     var estado = req.body.estado;
     var idUsuario = req.params.idUsuario;
 
-    if (titulo == undefined) {
+    if (nota == undefined) {
         res.status(400).send("O título está indefinido!");
     } else if (descricao == undefined) {
         res.status(400).send("A descrição está indefinido!");
@@ -80,7 +80,7 @@ function publicar(req, res) {
     } else if (estado == undefined) {
         res.status(400).send("O estado de avaliação está indefinido!");
     } else {
-        avisoModel.publicar(titulo, descricao, idUsuario, estado)
+        avisoModel.publicar(nota, descricao, idUsuario, estado)
             .then(
                 function (resultado) {
                     res.json(resultado);

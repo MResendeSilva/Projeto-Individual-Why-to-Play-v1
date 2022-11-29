@@ -1,18 +1,6 @@
 CREATE DATABASE projetoindividual;
 USE projetoindividual;
 
-CREATE TABLE usuario (
-    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(45),
-    email VARCHAR(45),
-    CONSTRAINT chkEmail CHECK (email LIKE '%@%'),
-    senha VARCHAR(45),
-    fkConfig INT,
-    FOREIGN KEY (fkConfig) REFERENCES config (idConfig),
-    fkJogo INT,
-	FOREIGN KEY (fkJogo) REFERENCES tipoGame (idtipoGame)
-);
-
 CREATE TABLE config (
     idConfig INT PRIMARY KEY AUTO_INCREMENT,
     processador VARCHAR(70),
@@ -28,9 +16,21 @@ CREATE TABLE tipoGame (
     nome VARCHAR(45)
 );
 
+CREATE TABLE usuario (
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45),
+    email VARCHAR(45),
+    CONSTRAINT chkEmail CHECK (email LIKE '%@%'),
+    senha VARCHAR(45),
+    fkConfig INT,
+    FOREIGN KEY (fkConfig) REFERENCES config (idConfig),
+    fkJogo INT,
+	FOREIGN KEY (fkJogo) REFERENCES tipoGame (idtipoGame)
+);
+
 CREATE TABLE avaliacao (
 	id INT AUTO_INCREMENT,
-	titulo VARCHAR(100),
+	nota INT,
 	descricao VARCHAR(250),
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario),
