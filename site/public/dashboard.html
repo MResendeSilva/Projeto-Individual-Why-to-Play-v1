@@ -13,8 +13,8 @@
     <title>Estatísticas</title>
 </head>
 
-<body onload=" iniciar()">
-    <div class="background">
+<body class="fundo" onload=" iniciar()">
+    <div class="fundo">
         <div class="navbar">
             <ul>
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
@@ -87,7 +87,7 @@
                     <div class="boxesDown">
                         <div class="rec">
                             <h2><b>AVALIAÇÃO MÉDIA DO SITE</b></h2>
-                            <h1><span class="resultadoMedia" id="resultadoMedia"></span> / 10</h1>
+                            <h1><span class="resultadoMedia" id="resultadoMedia">0</span> / 10</h1>
                         </div>
                     </div>
                 </div>
@@ -175,16 +175,14 @@
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log(resposta[0].nota);
 
                     for (let index = 0; index < resposta.length; index++) {
                         const notaAtual = resposta[index];
                         notas += notaAtual.nota
                     }
 
-                   var notaMedia = notas / resposta.length
-                   resultadoMedia.innerHTML = notaMedia.toFixed(2)
-
+                    var notaMedia = notas / resposta.length
+                    resultadoMedia.innerHTML = notaMedia.toFixed(1)
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
