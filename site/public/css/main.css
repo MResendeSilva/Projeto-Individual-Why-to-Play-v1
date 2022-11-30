@@ -101,6 +101,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 .s1 {
-    color:#1DD882;
+    color: #1DD882;
     font-weight: 600;
-  }  
+}
+
+.atual {
+    color: #1DD882;
+    font-weight: 600;
+}
