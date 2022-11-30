@@ -99,3 +99,8 @@ body::-webkit-scrollbar-thumb {
     height: 70px;
     width: 70px;
 }
+
+.s1 {
+    color:#1DD882;
+    font-weight: 600;
+  }  
