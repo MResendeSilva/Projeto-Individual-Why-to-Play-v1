@@ -65,21 +65,20 @@
   border-radius: 5px;
   color: black;
   height: 25px;
-  margin-bottom: 20px;
+  margin-bottom: 3%;
 }
 
 .dash-right .avisos .div-form textarea {
   width: 100%;
-  /* color: #E6005A; */
   border: 3px solid #1DD882;
   background-color: white;
   border-radius: 5px;
   color: black;
+  margin-bottom: 3%;
 }
 
 .dash-right .avisos .div-form button {
   cursor: pointer;
-  font-family: "Exo 2", sans-serif;
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -88,6 +87,7 @@
   color: white;
   background-color: #1DD882;
   width: 120px;
+  margin-bottom: 3%;
 }
 
 .publicacao-btn-editar {

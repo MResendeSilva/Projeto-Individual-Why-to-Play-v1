@@ -232,7 +232,7 @@
 .boxesDown {
     display: flex;
     justify-content: space-evenly;
-    margin: 20px 20px;
+    margin: 2.5%;
 }
 
 .rec {
