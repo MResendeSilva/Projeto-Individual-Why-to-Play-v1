@@ -65,9 +65,9 @@ body::-webkit-scrollbar-thumb {
 
 .card_erro {
     display: none;
-    background-color: #ffffff;
-    top: 100px;
-    left: 150px;
+    background-color: #fff;
+    top: 20%;
+    left: 41.5%;
     width: 230px;
     position: absolute;
     border-radius: 4px;
