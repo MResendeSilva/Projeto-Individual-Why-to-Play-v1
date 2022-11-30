@@ -92,3 +92,8 @@
 .caixaFormulario button:hover {
     opacity: 0.8;
 }
+
+.loading-div img {
+    height: 70px;
+    width: 70px;
+}
