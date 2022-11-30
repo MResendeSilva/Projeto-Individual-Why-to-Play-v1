@@ -152,11 +152,6 @@
     transform: scale(1.07);
 }
 
-.alerta_erro {
-    display: flex;
-    justify-content: flex-end;
-}
-
 .card_erro {
     display: none;
     background-color: #fff;
@@ -170,29 +165,6 @@
     margin-right: 10%;
 }
 
-.card_erro #mensagem_erro {
-    color: black !important;
-    font-weight: 500;
-    font-size: 20px;
-}
-
-#div_erros_login {
-    margin-top: 40px;
-    color: #1DD882;
-    font-weight: 600;
-    font-size: 20px;
-}
-
-.loading-div {
-    position: absolute;
-    display: none;
-    margin: 0 0;
-}
-
-.loading-div img {
-    height: 70px;
-    width: 70px;
-}
 
 #s1 {
     color: #1DD882

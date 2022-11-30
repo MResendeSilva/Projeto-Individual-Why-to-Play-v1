@@ -139,20 +139,6 @@
   font-weight: 600;
 }
 
-.botao {
-  width: 200px;
-  height: 30px;
-  background-color: #1DD882;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.botao:hover {
-  transform: scale(1.07);
-}
-
 .main {
   position: relative;
   width: 100%;
@@ -161,13 +147,10 @@
   z-index: 999;
 }
 
-/* Hide the default checkbox */
 input[type=checkbox] {
   visibility: hidden;
 }
 
-/* Creating a custom checkbox
-based on demand */
 .selecionado {
   position: absolute;
   top: 0;
@@ -181,8 +164,6 @@ based on demand */
   background-color: #1bbd71;
 }
 
-/* Checkmark to be shown in checkbox */
-/* It is not be shown when not checked */
 .selecionado:after {
   content: "";
   position: absolute;

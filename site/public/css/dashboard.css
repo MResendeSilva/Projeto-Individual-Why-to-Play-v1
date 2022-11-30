@@ -229,20 +229,6 @@
     font-weight: 600;
 }
 
-.bt {
-    width: 200px;
-    height: 30px;
-    background-color: #1DD882;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.bt:hover {
-    transform: scale(1.03);
-}
-
 .boxesDown {
     display: flex;
     justify-content: space-evenly;
@@ -279,5 +265,4 @@
     font-size: 50px;
     font-weight: 300;
     color: #ffffff;
-
 }
