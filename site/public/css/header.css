@@ -50,6 +50,23 @@ a {
     font-size: larger;
 }
 
+.atual::after {
+    content: " ";
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: -3px;
+    left: 0px;
+    transition: 0.5s;
+    border-radius: 2px;
+}
+
+/* .atual {
+    color:#1DD882;
+    font-weight: 600;
+} */
+
 /* .cadastro {
     border: 3px linear-gradient(180deg, #06B26B 0%, #1DD882 50.52%, #06B26B 100%);
 } */
