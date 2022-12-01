@@ -68,7 +68,7 @@
                         <div class="div-form">
                             <form id="form_postagem" method="post" onsubmit="return publicar()">
                                 <label>
-                                    Nota de 0 à 10:
+                                    Nota de 0 à 5:
                                     <br>
                                     <input name="nota" id="nota" maxlength="100" type="number">
                                 </label>
@@ -133,6 +133,7 @@
 
                     sessionStorage.ESTADO = resposta[0].estado
                     estado = sessionStorage.ESTADO;
+
                     sessionStorage.ID_AVISO = resposta[0].idAviso
                 });
 
@@ -150,7 +151,7 @@
         var nota = form_postagem.nota.value
 
         if (sessionStorage.ESTADO == 0) {
-            if (nota < 0 || nota > 10) {
+            if (nota < 0 || nota > 5) {
 
                 alert(`O campo nota foi preenchido de forma errada!`)
                 form_postagem.nota.value = ``
@@ -184,8 +185,8 @@
                             window.location = "mural.html";
                             console.log(resposta[0].estado);
 
-                            sessionStorage.ESTADO = estado
 
+                            validarInformacao();
                             limparFormulario();
                             finalizarAguardar();
                         }, 3000);
@@ -280,7 +281,7 @@
                         var btnDeletar = document.createElement("button");
 
 
-                        spanID.innerHTML = `ID: <b>  ${publicacao.idAviso}  </b>`;
+                        // spanID.innerHTML = `ID: <b>  ${publicacao.idAviso}  </b>`;
                         spannota.innerHTML = `Nota: <span class="s1"> ${publicacao.nota} </span>`;
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         divDescricao.innerHTML = "Avaliação: <b>" + publicacao.descricao + "</b>";
@@ -288,7 +289,7 @@
                         btnDeletar.innerHTML = "Deletar";
 
                         divPublicacao.className = "publicacao";
-                        spannota.id = "inputNumero" + publicacao.idAviso;
+                        // spannota.id = "inputNumero" + publicacao.idAviso;
                         spanNome.className = "publicacao-nome";
                         spannota.className = "publicacao-nota";
                         divDescricao.className = "publicacao-descricao";

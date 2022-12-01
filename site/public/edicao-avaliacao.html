@@ -80,10 +80,9 @@
                                     disabled>
                             </label>
                             <label>
-                                Título:
+                                Nota:
                                 <br>
-                                <input id="input_titulo" maxlength="100" type="text" style="color: rgb(196, 196, 196)"
-                                    disabled>
+                                <input id="input_nota" maxlength="100" type="number">
                             </label>
                             <br>
                             <label>
@@ -116,28 +115,40 @@
     }
 
     function editar() {
-        fetch(`/avisos/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                descricao: textarea_descricao.value
-            })
-        }).then(function (resposta) {
+        var nota = Number(input_nota.value)
+        if (nota < 0 || nota > 5) {
 
-            if (resposta.ok) {
-                window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "mural.html"
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
+            alert(`O campo nota foi preenchido de forma errada!`)
+            form_postagem.nota.value = ``
+            return false;
+
+        } else {
+
+            fetch(`/avisos/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    descricao: textarea_descricao.value,
+                    nota,
+                })
+            }).then(function (resposta) {
+
+                if (resposta.ok) {
+                    window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                    window.location = "mural.html"
+                } else if (resposta.status == 404) {
+                    window.alert("Deu 404!");
+                } else {
+                    throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        }
     }
+
 
 
 </script>
