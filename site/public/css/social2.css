@@ -1,6 +1,7 @@
 .social2 {
-    /* background: linear-gradient(180deg, #000000 0%, #1B1B1B 50.52%, #000000 100%); */
-    background: black;
+    background: linear-gradient(180deg, #000000 0%, #1B1B1B 50.52%, #000000 100%);
+    /* background: black; */
+    /* background: #202020; */
     height: auto;
     display: flex;
     justify-content: center;
